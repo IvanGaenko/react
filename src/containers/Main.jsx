@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 
-import Header from '../components/Header';
+import Main from '../components/Main';
+import { fetchProducts } from '../reducers/products';
 
-const mapStateToProps = () => ({
-  type: 'ADD_VIDEO',
-});
-const mapDispatchToProps = ({});
+const mapStateToProps = state => ({
+  products: state.products,
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+    getProducts: (limit, page) => dispatch(fetchProducts(limit, page))
+  })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

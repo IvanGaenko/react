@@ -1,53 +1,23 @@
-/* eslint-disable arrow-parens */
-/* eslint-disable no-case-declarations */
-const ADD_VIDEO = 'ADD_VIDEO';
-const EDIT_VIDEO = 'EDIT_VIDEO';
-const REMOVE_VIDEO = 'REMOVE_VIDEO';
+import * as constants from "../constants";
 
-// const INIT = [];
-
-export default function videosReducer(state = [], action) {
-  const { type, payload } = action;
+export default function products (state = [], action) {
+  const {type, payload} = action;
 
   switch (type) {
-    case ADD_VIDEO:
-      const newItem = {
-        id: String(Math.random()),
-        title: payload.title,
-        url: payload.url,
-        tags: payload.tags,
-      };
-      return [newItem, ...state];
-
-    case EDIT_VIDEO:
-      return state.map(item => {
-        if (item.id === payload.id) {
-          return {
-            ...item,
-            ...payload.update,
-          };
-        }
-        return item;
-      });
-    case REMOVE_VIDEO:
-      return state.filter(item => item.id !== payload.id);
-
+    case constants.ADD_ITEM:
+    return [ ...state, ...payload ];
+  
     default:
       return state;
   }
 }
 
-export const addVideo = ({ title, url, tags }) => ({
-  type: ADD_VIDEO,
-  payload: { title, url, tags },
-});
+export const getProducts = (payload) => {
+  return {type: constants.ADD_ITEM, payload}
+};
 
-export const editVideo = (id, update) => ({
-  type: EDIT_VIDEO,
-  payload: { id, update },
-});
-
-export const delVideo = id => ({
-  type: REMOVE_VIDEO,
-  payload: { id },
-});
+export const fetchProducts = (limit, page) => (dispatch) => {
+    fetch(`http://localhost:3001/posts?_limit=${limit}&_page=${page}`)
+    .then(responce => responce.json())
+    .then(data => dispatch(getProducts(data)));
+  };
