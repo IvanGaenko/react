@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 
 class ProductList extends Component {
@@ -9,9 +10,11 @@ class ProductList extends Component {
         <div>Id: {id}</div>
         <div>Title: {title}</div>
         <div>Author: {author}</div>
-        <Button variant="contained" color="primary">
-              Hello World
-            </Button>
+        <NavLink exact to={`/posts/${id}`}>
+          <Button variant="contained" color="primary">
+            Details
+          </Button>
+        </NavLink>
       </div>
     )
   }

@@ -4,19 +4,19 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import Main from './containers/Main';
-// import ProductPage from './containers/ProductPage';
-import Home from './Home';
-import Contacts from './Contacts';
-import NotFound from './NotFound';
+import ProductList from './Routes/ProductList/container/ProductList';
+import ProductPage from './Routes/ProductPage/container/ProductPage';
+import Home from './Routes/Home/Home';
+import Contacts from './Routes/Contacts/Contacts';
+import NotFound from './Routes/NotFound/NotFound';
 
 class Router extends Component {
   render() {
     return (
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/products" component={Main} exact />
-        {/* <Route path="/products/:id" component={ProductPage} exact /> */}
+        <Route path="/posts" component={ProductList} exact />
+        <Route path="/posts/:id" component={ProductPage} exact />
         <Route path="/contacts" component={Contacts} exact />
         <Route component={NotFound} />
       </Switch>

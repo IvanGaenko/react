@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
-import ProductList from './ProductList';
+import ProductCard from './ProductCard';
 
-export default class Main extends Component {
+export default class ProductList extends Component {
   componentDidMount() {
     if (this.props.addProducts.products.length === 0) {
       this.loadProducts();
@@ -20,7 +20,7 @@ export default class Main extends Component {
       {this.props.addProducts.products.map((item) => {
         return (
           <div key={item.id}>
-            <ProductList id={item.id} {...item} />
+            <ProductCard id={item.id} {...item} />
           </div>
         )
       })}
