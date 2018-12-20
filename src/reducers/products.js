@@ -22,7 +22,7 @@ export default function products (state = initialState, action) {
       return {
         ...state,
         page: payload,
-        limit: payload
+        // limit: payload
         }
     ;
     

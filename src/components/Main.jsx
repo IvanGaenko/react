@@ -1,10 +1,7 @@
-/* eslint-disable no-console */
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/jsx-wrap-multilines */
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
+import ProductList from './ProductList';
 
 export default class Main extends Component {
   componentDidMount() {
@@ -19,21 +16,20 @@ export default class Main extends Component {
 
   render() {
     console.log(this.props.addProducts);
-    
     return (<div>
       {this.props.addProducts.products.map((item) => {
         return (
           <div key={item.id}>
-            {item.id}
-            {item.title}
-            {item.author}
-            <Button variant="contained" color="primary">
-              Hello World
-            </Button>
+            <ProductList id={item.id} {...item} />
           </div>
         )
       })}
-      <button onClick={this.loadProducts}>Show more</button>
+      <Button
+      variant="contained"
+      color="primary"    
+      onClick={this.loadProducts}>
+      Show more
+      </Button>
     </div>)
   }
 }
