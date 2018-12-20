@@ -6,36 +6,22 @@ import React, { Component } from 'react';
 import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
 
-const initialState = {
-  limit: 2,
-  page: 1,
-};
 export default class Main extends Component {
-  state = initialState;
-
   componentDidMount() {
-    this.props.getProducts(this.state.limit, this.state.page);
-    this.props.getProducts(initialState);
-
+    if (this.props.addProducts.products.length === 0) {
+      this.loadProducts();
+    }
   }
 
-  componentWillUnmount() {
-    this.setState(initialState);
-  }
-
-  onClick = () => {
-    let { limit, page } = this.state;
-    const { getProducts } = this.props;
-    page = page + 1;
-    this.setState(() => ({ limit, page }), getProducts(limit, page));
+  loadProducts = () => {
+    this.props.getProducts(this.props.limit, this.props.page);
   };
 
-  static defaultProps = { products: [] };
-
   render() {
-    console.log(this.props.products);
+    console.log(this.props.addProducts);
+    
     return (<div>
-      {this.props.products.map((item) => {
+      {this.props.addProducts.products.map((item) => {
         return (
           <div key={item.id}>
             {item.id}
@@ -47,7 +33,7 @@ export default class Main extends Component {
           </div>
         )
       })}
-      <button onClick={this.onClick}>Show more</button>
+      <button onClick={this.loadProducts}>Show more</button>
     </div>)
   }
 }

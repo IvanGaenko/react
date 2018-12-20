@@ -4,7 +4,9 @@ import Main from '../components/Main';
 import { fetchProducts } from '../reducers/products';
 
 const mapStateToProps = state => ({
-  products: state.products,
+  addProducts: state.products,
+  page: state.products.page,
+  limit: state.products.limit,
 })
 
 const mapDispatchToProps = dispatch => ({
