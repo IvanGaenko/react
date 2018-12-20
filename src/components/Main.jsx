@@ -3,15 +3,24 @@
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { Component } from 'react';
+import 'typeface-roboto';
+import Button from '@material-ui/core/Button';
 
+const initialState = {
+  limit: 2,
+  page: 1,
+};
 export default class Main extends Component {
-  state = {
-    limit: 2,
-    page: 1,
-  };
+  state = initialState;
 
   componentDidMount() {
     this.props.getProducts(this.state.limit, this.state.page);
+    this.props.getProducts(initialState);
+
+  }
+
+  componentWillUnmount() {
+    this.setState(initialState);
   }
 
   onClick = () => {
@@ -32,6 +41,9 @@ export default class Main extends Component {
             {item.id}
             {item.title}
             {item.author}
+            <Button variant="contained" color="primary">
+              Hello World
+            </Button>
           </div>
         )
       })}
