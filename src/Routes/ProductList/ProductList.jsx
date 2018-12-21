@@ -15,13 +15,10 @@ export default class ProductList extends Component {
   };
 
   render() {
-    console.log(this.props.addProducts);
     return (<div>
       {this.props.addProducts.products.map((item) => {
         return (
-          <div key={item.id}>
-            <ProductCard id={item.id} {...item} />
-          </div>
+          <ProductCard key={item.id} {...item} />
         )
       })}
       <Button

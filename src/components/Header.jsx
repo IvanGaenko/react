@@ -20,12 +20,11 @@ const styles = {
   },
 };
 
+
 class Header extends Component {
-  
   render() {
     const { classes } = this.props;
     return (
-      <div>
         <AppBar position="static">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
@@ -39,7 +38,6 @@ class Header extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-      </div>
     );
   }
 }

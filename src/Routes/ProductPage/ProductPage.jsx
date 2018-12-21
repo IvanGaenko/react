@@ -9,13 +9,14 @@ class ProductPage extends Component {
 
   render() {
     const { singleProduct } = this.props;
-    console.log('product', singleProduct);
+
     return (
       <div>
         <NavLink exact to={`/posts/`}>
         <Button variant="contained" color="primary">
           Back
-        </Button></NavLink>
+        </Button>
+        </NavLink>
         {singleProduct.title}
         {singleProduct.author}
         {singleProduct.name}
