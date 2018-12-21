@@ -20,7 +20,6 @@ const styles = {
   },
 };
 
-
 class Header extends Component {
   render() {
     const { classes } = this.props;

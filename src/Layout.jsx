@@ -5,14 +5,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Header from './components/Header';
 import Router from './Router';
+import NotFound from './Routes/NotFound/NotFound';
 
-class Layout extends Component {
+class Layout extends Component {  
   render() {
+    console.log(this.props.errorLoad);
     return (
       <BrowserRouter>
         <Fragment>
           <Header />
-          <Router />
+          {this.props.errorLoad ? <NotFound /> : <Router />}
         </Fragment>
       </BrowserRouter>
     );

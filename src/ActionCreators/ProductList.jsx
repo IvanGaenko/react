@@ -21,5 +21,5 @@ export const fetchProducts = (limit, page) => (dispatch) => {
   .then(responce => responce.json())
   .then(data => dispatch(getProducts(data)))
   .then(data => dispatch(setPage(page+1)))
-  .catch(err => console.log(err));
+  .catch(err => console.log(err))
 };

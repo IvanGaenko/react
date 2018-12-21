@@ -9,17 +9,22 @@ import ProductPage from './Routes/ProductPage/container/ProductPage';
 import Home from './Routes/Home/Home';
 import Contacts from './Routes/Contacts/Contacts';
 import NotFound from './Routes/NotFound/NotFound';
+// import ErrorBoundary from './components/ErrorBoundary';
 
 class Router extends Component {
   render() {
     return (
+      // <ErrorBoundary>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/posts" component={ProductList} exact />
         <Route path="/posts/:id" component={ProductPage} exact />
         <Route path="/contacts" component={Contacts} exact />
-        <Route component={NotFound} />
+        <Route component={NotFound} onLeave={() => {
+          console.log('onLeave bar')
+        }} />
       </Switch>
+      // </ErrorBoundary>
     );
   }
 }

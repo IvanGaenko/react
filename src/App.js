@@ -5,9 +5,10 @@ import { Provider } from 'react-redux';
 
 import './App.css';
 import storeCreator from './store';
-import Layout from './Layout';
+import Layout from './Routes/Layout/container/Layout';
 
 let store = storeCreator();
+console.log(store.getState());
 
 class App extends Component {
   render() {

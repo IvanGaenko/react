@@ -10,7 +10,7 @@ class ProductList extends Component {
         <div>Id: {id}</div>
         <div>Title: {title}</div>
         <div>Author: {author}</div>
-        <img src="http://pngimg.com/uploads/burger_sandwich/burger_sandwich_PNG10530.png" alt=""/>
+        {/* <img src="http://pngimg.com/uploads/burger_sandwich/burger_sandwich_PNG10530.png" alt=""/> */}
         <NavLink exact to={`/posts/${id}`}>
           <Button variant="contained" color="primary">
             Details
