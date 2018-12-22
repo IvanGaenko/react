@@ -16,18 +16,26 @@ export default class ProductList extends Component {
   };
 
   render() {
-    return (<div>
-      {this.props.addProducts.products.map((item) => {
-        return (
-          <ProductCard key={item.id} {...item} />
-        )
-      })}
-      <Button
-      variant="contained"
-      color="primary"    
-      onClick={this.loadProducts}>
-      Show more
-      </Button>
-    </div>)
+    console.log('productlist', this.props.addProducts.products);
+    
+    return (
+      <div className="container">
+      <div className="product-list">
+        {this.props.addProducts.products.map((item) => {
+          return (
+            <ProductCard key={item.id} {...item} />
+          )
+        })}
+      </div>
+      <div className="product-list-button">
+        <Button
+          variant="contained"
+          color="primary"    
+          onClick={this.loadProducts}>
+            Show more
+        </Button>
+      </div>
+      </div>
+      )
   }
 }

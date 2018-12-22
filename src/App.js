@@ -5,11 +5,10 @@ import { Provider } from 'react-redux';
 
 import './App.css';
 import storeCreator from './store';
-import Layout from './Routes/Layout/container/Layout';
+import Layout from './Layout';
 
-let store = storeCreator();
-console.log(store.getState());
-
+const store = storeCreator();
+console.log('store', store.getState());
 class App extends Component {
   render() {
     return (

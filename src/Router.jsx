@@ -20,9 +20,8 @@ class Router extends Component {
         <Route path="/posts" component={ProductList} exact />
         <Route path="/posts/:id" component={ProductPage} exact />
         <Route path="/contacts" component={Contacts} exact />
-        <Route component={NotFound} onLeave={() => {
-          console.log('onLeave bar')
-        }} />
+        <Route path="/notfound" component={NotFound} />
+        <Route component={NotFound} />
       </Switch>
       // </ErrorBoundary>
     );

@@ -18,8 +18,13 @@ export const setPage = (page, limit) => {
 
 export const fetchProducts = (limit, page) => (dispatch) => {
   fetch(`http://localhost:3001/posts?_limit=${limit}&_page=${page}`)
-  .then(responce => responce.json())
+  .then(responce => {
+    return responce.json();
+  })
   .then(data => dispatch(getProducts(data)))
   .then(data => dispatch(setPage(page+1)))
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+  console.log('fetch!');
+  
+
 };

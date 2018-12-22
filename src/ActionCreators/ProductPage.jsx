@@ -1,5 +1,5 @@
 import * as constants from "../ActionTypes/ProductPage";
-import errorLoad from './errorAction';
+import { errorTrue, errorFalse } from './errorAction';
 
 export const getSingleProductCreator = (products) => {
   return {
@@ -9,17 +9,20 @@ export const getSingleProductCreator = (products) => {
   }
 };
 
-const handleErrors = (response) => {
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  return response;
-}
-
 export const getSingleProduct = id => dispatch => {
+  let status;
   fetch(`http://localhost:3001/posts/${id}`)
-    .then(handleErrors)
-    .then(responce => responce.json())
-    .then(products => dispatch(getSingleProductCreator(products)))
-    .catch(err => dispatch(errorLoad(true)));   
+    .then(responce => {
+      status = responce.status;
+      return responce.json();
+    })
+    .then(products => 
+    {
+      if (status >= 400 && status < 500) {
+        errorTrue(dispatch, status);
+      }
+      dispatch(getSingleProductCreator(products));
+      dispatch(errorFalse());
+    }
+    );
 };

@@ -21,20 +21,20 @@ const styles = {
 };
 
 class Header extends Component {
+
+  headElement = (content, link) => {
+    return (<Typography variant="title" color="inherit" className={this.props.classes.flex}>
+    <NavLink exact to={`/${link}`}>{content}</NavLink>
+  </Typography>)
+  };
+  
   render() {
-    const { classes } = this.props;
     return (
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="title" color="inherit" className={classes.flex}>
-              <NavLink exact to="/">Home</NavLink>
-            </Typography>
-            <Typography variant="title" color="inherit" className={classes.flex}>
-              <NavLink exact to="/posts">Products</NavLink>
-            </Typography>
-            <Typography variant="title" color="inherit" className={classes.flex}>
-              <NavLink exact to="/contacts">Contacts</NavLink>
-            </Typography>
+            {this.headElement('Home', '')}
+            {this.headElement('Products', 'posts')}
+            {this.headElement('Contacts', 'contacts')}
           </Toolbar>
         </AppBar>
     );
