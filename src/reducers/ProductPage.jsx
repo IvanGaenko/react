@@ -9,6 +9,18 @@ const productDetails = (state = {}, action) => {
         ...payload
       };
 
+    case constants.GET_NEXT_ITEM: 
+    return {
+      ...state,
+      ...payload
+    };
+
+    case constants.GET_PREV_ITEM: 
+    return {
+      ...state,
+      ...payload
+    };
+
     default:
       return state;
   }

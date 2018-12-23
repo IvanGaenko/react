@@ -15,21 +15,23 @@ export default class ProductList extends Component {
     this.props.getProducts(this.props.limit, this.props.page);
   };
 
-  render() {
-    console.log('productlist', this.props.addProducts.products);
-    
+  render() {    
     return (
       <div className="container">
       <div className="product-list">
         {this.props.addProducts.products.map((item) => {
           return (
-            <ProductCard key={item.id} {...item} />
+            <ProductCard
+            key={item.id}
+            {...item}
+            addCart={this.props.addCart}
+            />
           )
         })}
       </div>
       <div className="product-list-button">
         <Button
-          variant="contained"
+          variant="outlined"
           color="primary"    
           onClick={this.loadProducts}>
             Show more

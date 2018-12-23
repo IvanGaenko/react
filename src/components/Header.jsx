@@ -7,18 +7,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 
-const styles = {
-  root: {
+const styles = () => (
+  {
+    root: {
     flexGrow: 1,
-  },
-  flex: {
-    flex: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
+    marginBottom: 50
+    },
+    flex: {
+      flex: 1,
+    }
+  }
+);
 
 class Header extends Component {
 
@@ -28,15 +27,48 @@ class Header extends Component {
   </Typography>)
   };
   
-  render() {
+  productCount = (cartCount) => {
+    const showCartCount = this.props.showCart.length;
+    let product = (showCartCount > 1) ? ('products') : ('product');
     return (
+      (showCartCount === 0) ? (
+        <Typography variant="title" color="inherit" className={this.props.classes.flex}>
+          Cart is empty
+        </Typography>
+      ) : (
+        <div>
+          <p>You have {cartCount} {product} in cart.</p>
+          <p>Total cost is ${this.countSum()}.</p>
+        </div>
+      )
+    )
+  }
+
+  countSum = () => {
+    let bank = [];
+    const stateCart = this.props.showCart;
+    for (let i = 0; i < stateCart.length; i++) {
+      bank.push(stateCart[i].price);
+    };
+    let totalBank = bank.reduce((first, second) => first + second, 0);
+    return totalBank;
+  }
+
+  render() {
+    const { classes } = this.props;
+    const showCartCount = this.props.showCart.length;
+    return (
+      <header className={classes.root}>
         <AppBar position="static">
           <Toolbar>
             {this.headElement('Home', '')}
             {this.headElement('Products', 'posts')}
             {this.headElement('Contacts', 'contacts')}
+            {this.headElement(`Cart (${showCartCount})`, 'cart')}
+            {this.productCount(showCartCount)}
           </Toolbar>
         </AppBar>
+      </header>
     );
   }
 }

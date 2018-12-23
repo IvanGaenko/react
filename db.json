@@ -2,78 +2,163 @@
   "posts": [
     {
       "id": 1,
-      "title": "Title 1",
-      "author": "Author 1"
+      "title": "«Номер 5»",
+      "author": "Джексон Поллок",
+      "year": 1948,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/855b9.jpg",
+      "price": 140000000
     },
     {
       "id": 2,
-      "title": "Title 2",
-      "author": "Author 2"
+      "title": "«Женщина III»",
+      "author": "Виллем де Кунинг",
+      "year": 1953,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/4b92b.jpg",
+      "price": 137500000
     },
     {
       "id": 3,
-      "title": "Title 3",
-      "author": "Author 3"
+      "title": "«Портрет Адели Блох Бауер»",
+      "author": "Густав Климт",
+      "year": 1907,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/ead1c.jpg",
+      "price": 135000000
     },
     {
       "id": 4,
-      "title": "Title 4",
-      "author": "Author 4"
+      "title": "«Обнаженная на фоне бюста и зеленых листьев»",
+      "author": "Пабло Пикассо",
+      "year": 1932,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/8dd3c.jpg",
+      "price": 106482000
     },
     {
       "id": 5,
-      "title": "Title 5",
-      "author": "Author 5"
+      "title": "«Мальчик с трубкой»",
+      "author": "Пабло Пикассо",
+      "year": 1905,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/50706.jpg",
+      "price": 104168000
     },
     {
       "id": 6,
-      "title": "Title 6",
-      "author": "Author 6"
+      "title": "«Восемь Элвисов»",
+      "author": "Энди Уорхол",
+      "year": 1963,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/09e81.jpg",
+      "price": 100000000
     },
     {
       "id": 7,
-      "title": "Title 7",
-      "author": "Author 7"
+      "title": "«Портрет Доры Маар»",
+      "author": "Пабло Пикассо",
+      "year": 1941,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/b5096.jpg",
+      "price": 95216000
     },
     {
       "id": 8,
-      "title": "Title 8",
-      "author": "Author 8"
+      "title": "«Портрет Адели Блох-Бауэр II»",
+      "author": "Густав Климт",
+      "year": 1912,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/dfbdc.jpg",
+      "price": 87936000
     },
     {
       "id": 9,
-      "title": "Title 9",
-      "author": "Author 9"
+      "title": "«Триптих»",
+      "author": "Фрэнсис Бэкон",
+      "year": 1977,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/98de0.jpg",
+      "price": 86200000
     },
     {
       "id": 10,
-      "title": "Title 10",
-      "author": "Author 10"
+      "title": "«Портрет доктора Гаше»",
+      "author": "Винсент ван Гог",
+      "year": 1890,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/e0df5.jpg",
+      "price": 82500000
     },
     {
       "id": 11,
-      "title": "Title 11",
-      "author": "Author 11"
+      "title": "«Пруд с кувшинками»",
+      "author": "Клод Моне",
+      "year": 1919,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/82acb.jpg",
+      "price": 80500000
     },
     {
       "id": 12,
-      "title": "Title 12",
-      "author": "Author 12"
+      "title": "«Бирюзовая Мэрилин»",
+      "author": "Энди Уорхол",
+      "year": 1964,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/2eb0c.jpg",
+      "price": 80000000
     },
     {
       "id": 13,
-      "title": "Title 13",
-      "author": "Author 13"
-    }
-  ],
-  "comments": [
+      "title": "«Избиение младенцев»",
+      "author": "Питер Пауль Рубенс",
+      "year": 1609,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/d575f.jpg",
+      "price": 75930000
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 14,
+      "title": "«Белый центр»",
+      "author": "Марк Ротко",
+      "year": 1950,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/df6e5.jpg",
+      "price": 72800000
+    },
+    {
+      "id": 15,
+      "title": "«Авария зеленой машины»",
+      "author": "Энди Уорхол",
+      "year": 1963,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/ad745.jpg",
+      "price": 71720000
+    },
+    {
+      "id": 16,
+      "title": "«Пшеничное поле с кипарисами»",
+      "author": "Винсент ван Гог",
+      "year": 1889,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/7366f.jpg",
+      "price": 57000000
+    },
+    {
+      "id": 17,
+      "title": "«Ирисы»",
+      "author": "Винсент ван Гог",
+      "year": 1889,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/c7c26.jpg",
+      "price": 53900000
+    },
+    {
+      "id": 18,
+      "title": "«Сон»",
+      "author": "Пабло Пикассо",
+      "year": 1932,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/de85c.jpg",
+      "price": 48403000
+    },
+    {
+      "id": 19,
+      "title": "«200 долларовых банкнот»",
+      "author": "Энди Уорхол",
+      "year": 1962,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/507db.jpg",
+      "price": 43800000
+    },
+    {
+      "id": 20,
+      "title": "«Подсолнухи»",
+      "author": "Винсент ван Гог",
+      "year": 1888,
+      "image": "http://www.topnews.ru/upload/photo/69ead639/5fec3.jpg",
+      "price": 40500000
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
