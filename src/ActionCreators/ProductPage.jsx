@@ -58,8 +58,7 @@ export const getNextProduct = id => dispatch => {
       }
       dispatch(getNextProductCreator(products));
       dispatch(errorFalse());
-    }
-    )
+    })
 };
 
 export const getPrevProduct = id => dispatch => {
@@ -77,7 +76,5 @@ export const getPrevProduct = id => dispatch => {
       }
       dispatch(getPrevProductCreator(products));
       dispatch(errorFalse());
-      console.log('fire! minus', custom);
-    }
-    )
+    })
 };

@@ -32,6 +32,5 @@ export const fetchProducts = (limit, page) => dispatch => {
     dispatch(getProducts(data));
     dispatch(setPage(page+1));
     dispatch(errorFalse());
-  }
-  )
+  })
 };
