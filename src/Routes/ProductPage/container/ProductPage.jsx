@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 
 import ProductPage from "../ProductPage";
-import { getSingleProduct, addCart, getNextProduct, getPrevProduct } from "../../../ActionCreators/ProductPage";
+import { addCart } from "../../../ActionCreators/Cart";
+import { getSingleProduct, getNextProduct, getPrevProduct } from "../../../ActionCreators/ProductPage";
 import { productSelector } from "../../../Selectors/ProductPage";
 
 const mapStateToProps = (state, props) => ({

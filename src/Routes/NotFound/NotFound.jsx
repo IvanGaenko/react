@@ -8,19 +8,26 @@ import Button from '@material-ui/core/Button';
 const styles = {
   flex: {
     flex: 1,
+    marginBottom: 50,
   }
 };
 
 class NotFound extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <Typography variant="title" color="inherit" className={this.props.classes.flex}>
-          NotFound
+          Page Not Found. Something went wrong. Please, contacts us to repair this problem.
         </Typography>
         <Link to="/">
           <Button variant="contained" color="primary">
-            Home
+            Go To Home
+          </Button>
+        </Link>
+        <Link to="/posts/">
+          <Button variant="contained" color="primary">
+            Go To Products
           </Button>
         </Link>
       </div>

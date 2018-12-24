@@ -1,6 +1,5 @@
 import * as constants from "../ActionTypes/ProductPage";
 import { errorTrue, errorFalse } from './errorAction';
-import { addCartCreator, deleteCartCreator } from './Cart';
 
 export const getSingleProductCreator = products => {
   return {
@@ -29,14 +28,14 @@ export const getPrevProductCreator = products => {
 export const getSingleProduct = id => dispatch => {
   let status;
   fetch(`http://localhost:3001/posts/${id}`)
-    .then(responce => {
-      status = responce.status;
-      return responce.json();
+    .then(response => {
+      status = response.status;
+      return response.json();
     })
     .then(products => 
     {
       if (status >= 400 && status < 500) {
-        errorTrue(dispatch, status);
+        dispatch(errorTrue(status));
       }
       dispatch(getSingleProductCreator(products));
       dispatch(errorFalse());
@@ -48,18 +47,17 @@ export const getNextProduct = id => dispatch => {
   let status;
   let custom = `${id+1}`;
   fetch(`http://localhost:3001/posts/${custom}`)
-    .then(responce => {
-      status = responce.status;
-      return responce.json();
+    .then(response => {
+      status = response.status;
+      return response.json();
     })
     .then(products => 
     {
       if (status >= 400 && status < 500) {
-        errorTrue(dispatch, status);
+        dispatch(errorTrue(status));
       }
       dispatch(getNextProductCreator(products));
       dispatch(errorFalse());
-      console.log('fire! plus', custom);
     }
     )
 };
@@ -68,26 +66,18 @@ export const getPrevProduct = id => dispatch => {
   let status;
   let custom = `${id-1}`;
   fetch(`http://localhost:3001/posts/${custom}`)
-    .then(responce => {
-      status = responce.status;
-      return responce.json();
+    .then(response => {
+      status = response.status;
+      return response.json();
     })
     .then(products => 
     {
       if (status >= 400 && status < 500) {
-        errorTrue(dispatch, status);
+        dispatch(errorTrue(status));
       }
       dispatch(getPrevProductCreator(products));
       dispatch(errorFalse());
       console.log('fire! minus', custom);
     }
     )
-};
-
-export const addCart = payload => dispatch => {
-  dispatch(addCartCreator(payload));
-};
-
-export const delCart = payload => dispatch => {
-  dispatch(deleteCartCreator(payload));
 };

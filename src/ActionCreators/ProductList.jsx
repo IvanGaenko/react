@@ -1,7 +1,7 @@
 import * as constants from "../ActionTypes/ProductList";
-// import { addCartCreator } from './Cart';
+import { errorTrue, errorFalse } from './errorAction';
 
-export const getProducts = (products) => {
+export const getProducts = products => {
   return {
     type: constants.ADD_ITEM,
     payload: {
@@ -17,24 +17,21 @@ export const setPage = (page, limit) => {
   }
 }
 
-export const addCartCreator = payload => {
-  return {
-    type: constants.ADD_TO_CARD,
-    payload
-  }
-};
-
-export const fetchProducts = (limit, page) => (dispatch) => {
+export const fetchProducts = (limit, page) => dispatch => {
+  let status;
   fetch(`http://localhost:3001/posts?_limit=${limit}&_page=${page}`)
-  .then(responce => {
-    return responce.json();
+  .then(response => {
+    status = response.status;
+    return response.json();
   })
-  .then(data => dispatch(getProducts(data)))
-  .then(data => dispatch(setPage(page+1)))
-  .catch(err => console.log(err));
-  console.log('fetch!');
-};
-
-export const addCart = payload => dispatch => {
-  dispatch(addCartCreator(payload));
+  .then(data => 
+    {
+      if (status >= 400 && status < 500) {
+        dispatch(errorTrue(status));
+    }
+    dispatch(getProducts(data));
+    dispatch(setPage(page+1));
+    dispatch(errorFalse());
+  }
+  )
 };

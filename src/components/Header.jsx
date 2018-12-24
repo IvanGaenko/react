@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
+import Badge from '@material-ui/core/Badge';
 
 const styles = () => (
   {
@@ -15,7 +15,10 @@ const styles = () => (
     },
     flex: {
       flex: 1,
-    }
+    },
+    margin: {
+      margin: 5,
+    },
   }
 );
 
@@ -64,8 +67,12 @@ class Header extends Component {
             {this.headElement('Home', '')}
             {this.headElement('Products', 'posts')}
             {this.headElement('Contacts', 'contacts')}
-            {this.headElement(`Cart (${showCartCount})`, 'cart')}
-            {this.productCount(showCartCount)}
+            <Badge color="primary" badgeContent={showCartCount} className={classes.margin}>
+              {this.headElement('Cart', 'cart')}
+            </Badge>
+            <span>
+              {this.productCount(showCartCount)}
+            </span>
           </Toolbar>
         </AppBar>
       </header>

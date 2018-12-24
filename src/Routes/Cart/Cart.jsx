@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CartContent from './CartContent';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 class Cart extends Component {
   
@@ -28,18 +29,21 @@ class Cart extends Component {
         </Link>
       </div>
       ) : (
-      <div>
-        {this.props.showCart.map((item) => {
-          return (
-            <CartContent
-            key={item.id}
-            {...item}
-            delCart={this.props.delCart} />
-          )
-        })}
-        <div>Total sum: ${this.countSum()}</div>
-      </div>
-    );
+        <div>
+          {this.props.showCart.map(item => {
+            return (
+              <CartContent
+                key={item.id}
+                {...item}
+                delCart={this.props.delCart}/>
+            )
+          })}
+          {/* <div>Total sum: ${this.countSum()}</div> */}
+          <Typography gutterBottom variant="headline" component="h2">
+            Total sum: ${this.countSum()}
+          </Typography>
+        </div>
+      );
   };
 };
 

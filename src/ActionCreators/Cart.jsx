@@ -13,3 +13,12 @@ export const deleteCartCreator = payload => {
     payload
   }
 };
+
+export const addCart = payload => dispatch => {
+  dispatch(addCartCreator(payload));
+};
+
+export const delCart = payload => dispatch => {
+  dispatch(deleteCartCreator(payload));
+};
+///sdkfsdkf

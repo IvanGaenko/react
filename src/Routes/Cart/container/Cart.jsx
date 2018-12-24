@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Cart from '../Cart';
-import { delCart } from "../../../ActionCreators/ProductPage";
+import { delCart } from "../../../ActionCreators/Cart";
 
 
 const mapStateToProps = state => ({

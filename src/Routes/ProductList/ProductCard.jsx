@@ -9,6 +9,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+
 const styles = () => (
   {
     root: {
@@ -28,19 +31,38 @@ const styles = () => (
     title: {
       marginBottom: 16,
       fontSize: 14,
+    },
+    close: {
+      padding: 20,
     }
   }
 );
 
 class ProductCard extends Component {
+  state = {
+    open: false,
+  };
+
+  handleClick = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    this.setState({ open: false });
+  };
 
   addToCart = () => {
     this.props.addCart(this.props);
+    this.handleClick();
   }
 
   render() {
     const { classes } = this.props;
     const { id, title, author, image, price, year } = this.props;
+    console.log('productcart', this.props)
     return (
       <div className={classes.root}>
         <Card className={classes.card}>
@@ -75,6 +97,41 @@ class ProductCard extends Component {
             </Link>
           </CardActions>
         </Card>
+
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          open={this.state.open}
+          autoHideDuration={4000}
+          onClose={this.handleClose}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={
+          <span id="message-id">
+            <div>{this.props.title}</div>
+            <div>{this.props.author}</div>
+            <div>added to Cart</div>
+          </span>
+          }
+          action={[
+            <Button key="undo" color="inherit" size="small" onClick={this.handleClose}>
+              Close
+            </Button>,
+            <IconButton
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              className={classes.close}
+              onClick={this.handleClose}
+            >
+              {/* <CloseIcon /> */}
+            </IconButton>,
+          ]}
+        />
+
       </div>
     )
   }
