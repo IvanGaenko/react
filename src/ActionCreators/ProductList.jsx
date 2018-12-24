@@ -24,7 +24,4 @@ export const fetchProducts = (limit, page) => (dispatch) => {
   .then(data => dispatch(getProducts(data)))
   .then(data => dispatch(setPage(page+1)))
   .catch(err => console.log(err));
-  console.log('fetch!');
-  
-
 };

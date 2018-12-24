@@ -19,7 +19,7 @@ export const getSingleProduct = id => dispatch => {
     .then(products => 
     {
       if (status >= 400 && status < 500) {
-        errorTrue(dispatch, status);
+        dispatch(errorTrue(status));
       }
       dispatch(getSingleProductCreator(products));
       dispatch(errorFalse());
