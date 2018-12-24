@@ -95,108 +95,106 @@ class ProductPage extends Component {
     const { classes } = this.props;
     const { id, title, author, image, price, year } = this.props.singleProduct;
     const { error } = this.props;
-    console.log('singleProduct', this.props.singleProduct);
-    
-      return error ? (<Redirect to="/notfound" />) : (
-        this.state.isLoading ? (
-          <CircularProgress className={classes.progress} />
-        ) : (
-        <div className={classes.root}>
-          <div className={classes.container}>
-          <div>
-            
-
-            <Link to={`/posts/${this.props.singleProduct.id - 1}`}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.prevCart}>
-                Prev
-              </Button>
-            </Link>
-
-            <Link to={`/posts/`}>
-              <Button
-                variant="contained"
-                color="primary">
-                Back
-              </Button>
-            </Link>
-          </div>
-
-          <Card className={classes.card}>
-            <CardMedia
-              className={classes.media}
-              image={image}
-              title={id}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="headline" component="h2">
-                {title}
-              </Typography>
-              <Typography gutterBottom variant="headline" component="h2">
-                {author}
-              </Typography>
-              <Typography component="p">
-                Year: {year}
-              </Typography>
-              <Typography component="p">
-                Price: ${price}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button className={classes.button} size="small" color="primary" onClick={this.addToCart}>
-                Buy
-              </Button>
-            </CardActions>
-          </Card>
+    return error ? (<Redirect to="/notfound" />) : (
+      this.state.isLoading ? (
+        <CircularProgress className={classes.progress} />
+      ) : (
+      <div className={classes.root}>
+        <div className={classes.container}>
+        <div>
           
-          <Link to={`/posts/${this.props.singleProduct.id + 1}`}>
+
+          <Link to={`/posts/${this.props.singleProduct.id - 1}`}>
             <Button
               variant="contained"
               color="primary"
-              onClick={this.nextCart}>
-              Next
+              onClick={this.prevCart}>
+              Prev
             </Button>
           </Link>
-          </div>
 
-          <Snackbar
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          open={this.state.open}
-          autoHideDuration={4000}
-          onClose={this.handleClose}
-          ContentProps={{
-            'aria-describedby': 'message-id',
-          }}
-          message={
-          <span id="message-id">
-            <div>{title}</div>
-            <div>{author}</div>
-            <div>added to Cart</div>
-          </span>
-          }
-          action={[
-            <Button key="undo" color="inherit" size="small" onClick={this.handleClose}>
-              Close
-            </Button>,
-            <IconButton
-              key="close"
-              aria-label="Close"
-              color="inherit"
-              className={classes.close}
-              onClick={this.handleClose}
-            >
-            </IconButton>,
-          ]}
-        />
+          <Link to={`/posts/`}>
+            <Button
+              variant="contained"
+              color="primary">
+              Back
+            </Button>
+          </Link>
         </div>
-      ))
-    }
-  };
+
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.media}
+            image={image}
+            title={id}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="headline" component="h2">
+              {title}
+            </Typography>
+            <Typography gutterBottom variant="headline" component="h2">
+              {author}
+            </Typography>
+            <Typography component="p">
+              Year: {year}
+            </Typography>
+            <Typography component="p">
+              Price: ${price}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button className={classes.button} size="small" color="primary" onClick={this.addToCart}>
+              Buy
+            </Button>
+          </CardActions>
+        </Card>
+        
+        <Link to={`/posts/${this.props.singleProduct.id + 1}`}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.nextCart}>
+            Next
+          </Button>
+        </Link>
+        </div>
+
+        <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        open={this.state.open}
+        autoHideDuration={4000}
+        onClose={this.handleClose}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={
+        <span id="message-id">
+          <div>{title}</div>
+          <div>{author}</div>
+          <div>added to Cart</div>
+        </span>
+        }
+        action={[
+          <Button key="undo" color="inherit" size="small" onClick={this.handleClose}>
+            Close
+          </Button>,
+          <IconButton
+            key="close"
+            aria-label="Close"
+            color="inherit"
+            className={classes.close}
+            onClick={this.handleClose}
+          >
+          </IconButton>,
+        ]}
+      />
+      </div>
+    ))
+  }
+};
 
 export default withStyles(styles)(ProductPage);
 

@@ -62,7 +62,6 @@ class ProductCard extends Component {
   render() {
     const { classes } = this.props;
     const { id, title, author, image, price, year } = this.props;
-    console.log('productcart', this.props)
     return (
       <div className={classes.root}>
         <Card className={classes.card}>

@@ -14,7 +14,6 @@ import NotFound from './Routes/NotFound/NotFound';
 class Router extends Component {
   render() {
     return (
-      // <ErrorBoundary>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/posts" component={ProductList} exact />
@@ -24,7 +23,6 @@ class Router extends Component {
         <Route path="/notfound" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
-      // </ErrorBoundary>
     );
   }
 }
