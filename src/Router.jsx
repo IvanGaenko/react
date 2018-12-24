@@ -1,5 +1,3 @@
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
@@ -18,6 +16,7 @@ class Router extends Component {
         <Route path="/posts" component={ProductList} exact />
         <Route path="/posts/:id" component={ProductPage} exact />
         <Route path="/contacts" component={Contacts} exact />
+        <Route path="/notfound" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
     );

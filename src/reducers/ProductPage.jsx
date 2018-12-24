@@ -1,10 +1,6 @@
 import * as constants from "../ActionTypes/ProductPage";
 
-const initialState = {
-  name: 'Ivan'
-};
-
-const productDetails = (state = initialState, action) => {
+const productDetails = (state = {}, action) => {
   const { type, payload } = action;
   switch (type) {
     case constants.GET_SINGLE_ITEM: 

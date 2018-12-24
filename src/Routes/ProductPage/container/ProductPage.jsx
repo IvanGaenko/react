@@ -2,9 +2,11 @@ import { connect } from "react-redux";
 
 import ProductPage from "../ProductPage";
 import { getSingleProduct } from "../../../ActionCreators/ProductPage";
+import { productSelector } from "../../../Selectors/ProductPage";
 
-const mapStateToProps = state => ({
-  singleProduct: state.ProductPage
+const mapStateToProps = (state, props) => ({
+  singleProduct: productSelector(state.ProductList.products, props) || state.ProductPage,
+  error: state.errorReducer
 });
 
 const mapDispatchToProps = dispatch => ({

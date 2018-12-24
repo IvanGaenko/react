@@ -1,18 +1,28 @@
 import * as constants from "../ActionTypes/ProductPage";
+import { errorTrue, errorFalse } from './errorAction';
 
 export const getSingleProductCreator = (products) => {
   return {
     type: constants.GET_SINGLE_ITEM,
     payload: 
       products
-    
   }
 };
 
 export const getSingleProduct = id => dispatch => {
-    fetch(`http://localhost:3001/posts/${id}`)
-      .then(responce => responce.json())
-      .then(products =>
-        dispatch(getSingleProductCreator(products)))
-      .catch(err => console.log(err));
-  };
+  let status;
+  fetch(`http://localhost:3001/posts/${id}`)
+    .then(responce => {
+      status = responce.status;
+      return responce.json();
+    })
+    .then(products => 
+    {
+      if (status >= 400 && status < 500) {
+        dispatch(errorTrue(status));
+      }
+      dispatch(getSingleProductCreator(products));
+      dispatch(errorFalse());
+    }
+    );
+};

@@ -5,8 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Header from './components/Header';
 import Router from './Router';
+// import NotFound from './Routes/NotFound/NotFound';
 
-class Layout extends Component {
+class Layout extends Component {  
   render() {
     return (
       <BrowserRouter>

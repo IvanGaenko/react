@@ -7,7 +7,7 @@ import './App.css';
 import storeCreator from './store';
 import Layout from './Layout';
 
-let store = storeCreator();
+const store = storeCreator();
 
 class App extends Component {
   render() {
