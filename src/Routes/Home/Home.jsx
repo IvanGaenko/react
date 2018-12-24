@@ -11,9 +11,13 @@ const styles = {
 
 class Home extends Component {
   render() {
-    return (<Typography variant="title" color="inherit" className={this.props.classes.flex}>
-    Welcome
-  </Typography>)
+    return (
+      <Typography
+        variant="title"
+        color="inherit"
+        className={this.props.classes.flex}>
+        Welcome
+      </Typography>)
   }
 }
 

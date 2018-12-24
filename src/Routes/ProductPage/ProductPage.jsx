@@ -102,8 +102,6 @@ class ProductPage extends Component {
       <div className={classes.root}>
         <div className={classes.container}>
         <div>
-          
-
           <Link to={`/posts/${this.props.singleProduct.id - 1}`}>
             <Button
               variant="contained"

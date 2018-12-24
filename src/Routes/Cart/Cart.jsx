@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 class Cart extends Component {
   
   countSum = () => {
-    let bank = [];
+    const bank = [];
     const stateCart = this.props.showCart;
     for (let i = 0; i < stateCart.length; i++) {
       bank.push(stateCart[i].price);
@@ -38,7 +38,6 @@ class Cart extends Component {
                 delCart={this.props.delCart}/>
             )
           })}
-          {/* <div>Total sum: ${this.countSum()}</div> */}
           <Typography gutterBottom variant="headline" component="h2">
             Total sum: ${this.countSum()}
           </Typography>

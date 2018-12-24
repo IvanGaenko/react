@@ -17,16 +17,25 @@ class NotFound extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Typography variant="title" color="inherit" className={this.props.classes.flex}>
+        <Typography
+        variant="title"
+        color="inherit"
+        className={this.props.classes.flex}>
           Page Not Found. Something went wrong. Please, contacts us to repair this problem.
         </Typography>
+
         <Link to="/">
-          <Button variant="contained" color="primary">
+          <Button
+          variant="contained"
+          color="primary">
             Go To Home
           </Button>
         </Link>
+        
         <Link to="/posts/">
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary">
             Go To Products
           </Button>
         </Link>

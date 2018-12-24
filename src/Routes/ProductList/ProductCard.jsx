@@ -71,16 +71,24 @@ class ProductCard extends Component {
             title={id}
           />
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
+            <Typography
+              gutterBottom
+              variant="headline"
+              component="h2">
               {title}
             </Typography>
-            <Typography gutterBottom variant="headline" component="h2">
+            <Typography
+              gutterBottom
+              variant="headline"
+              component="h2">
               {author}
             </Typography>
-            <Typography component="p">
+            <Typography
+              component="p">
               Year: {year}
             </Typography>
-            <Typography component="p">
+            <Typography
+              component="p">
               Price: ${price}
             </Typography>
           </CardContent>
@@ -124,13 +132,10 @@ class ProductCard extends Component {
               aria-label="Close"
               color="inherit"
               className={classes.close}
-              onClick={this.handleClose}
-            >
-              {/* <CloseIcon /> */}
+              onClick={this.handleClose}>
             </IconButton>,
           ]}
         />
-
       </div>
     )
   }

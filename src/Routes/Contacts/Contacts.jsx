@@ -11,11 +11,17 @@ const styles = {
 
 class Contacts extends Component {
   render() {
-    return (<Typography variant="title" color="inherit" className={this.props.classes.flex}>
-    <p>Contacts</p>
-    <a href="https://www.obozrevatel.com/culture/top-50-samyih-dorogih-kartin-v-mire.htm">Source</a>
-    
-  </Typography>)
+    return (
+    <Typography
+      variant="title"
+      color="inherit"
+      className={this.props.classes.flex}>
+      <p>Contacts</p>
+      <a href="https://www.obozrevatel.com/culture/top-50-samyih-dorogih-kartin-v-mire.htm">
+        Source
+      </a>
+    </Typography>
+    )
   }
 }
 
