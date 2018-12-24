@@ -1,5 +1,3 @@
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
