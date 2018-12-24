@@ -8,7 +8,7 @@ import storeCreator from './store';
 import Layout from './Layout';
 
 const store = storeCreator();
-console.log('store', store.getState());
+
 class App extends Component {
   render() {
     return (

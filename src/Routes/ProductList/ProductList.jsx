@@ -16,8 +16,6 @@ export default class ProductList extends Component {
   };
 
   render() {
-    console.log('productlist', this.props.addProducts.products);
-    
     return (
       <div className="container">
       <div className="product-list">

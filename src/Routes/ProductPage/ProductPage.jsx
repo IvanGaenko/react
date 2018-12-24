@@ -12,8 +12,6 @@ class ProductPage extends Component {
   render() {
     const { id, title, author } = this.props.singleProduct;
     const { error } = this.props;
-    console.log('productpageid', id);
-    
     const img = `https://picsum.photos/300/300/?image=${id*10}`;
       return error ? (<Redirect to="/notfound" />) : (<div>
         <Link to={`/posts/`}>
