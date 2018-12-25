@@ -6,5 +6,5 @@ export const errorTrue = payload => ({
 });
 
 export const errorFalse = () => ({
-  type: constants.ERROR_FALSE
+  type: constants.ERROR_FALSE,
 })

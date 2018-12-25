@@ -6,6 +6,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 const styles = theme => ({
   progress: {
     margin: theme.spacing.unit * 2,
@@ -53,6 +56,7 @@ class ProductList extends Component {
                 Show more
             </Button>
           </div>
+          <div>sup</div>
         </div>
         )
       )
@@ -64,3 +68,5 @@ ProductList.propTypes = {
 };
 
 export default withStyles(styles)(ProductList);
+
+configure({ adapter: new Adapter() });

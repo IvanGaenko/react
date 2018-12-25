@@ -1,5 +1,5 @@
 import * as constants from "../ActionTypes/ProductPage";
-import { errorTrue, errorFalse } from './errorAction';
+import { errorTrue } from './errorAction';
 
 export const getSingleProductCreator = products => {
   return {
@@ -38,7 +38,7 @@ export const getSingleProduct = id => dispatch => {
         dispatch(errorTrue(status));
       }
       dispatch(getSingleProductCreator(products));
-      dispatch(errorFalse());
+      // dispatch(fetchTotal());
     }
     );
 };
@@ -57,13 +57,17 @@ export const getNextProduct = id => dispatch => {
         dispatch(errorTrue(status));
       }
       dispatch(getNextProductCreator(products));
-      dispatch(errorFalse());
     })
 };
 
 export const getPrevProduct = id => dispatch => {
   let status;
-  let custom = `${id-1}`;
+  let custom;
+  if (id === 1) {
+    custom = `${id}`;
+  } else {
+    custom = `${id-1}`;
+  };
   fetch(`http://localhost:3001/posts/${custom}`)
     .then(response => {
       status = response.status;
@@ -75,6 +79,11 @@ export const getPrevProduct = id => dispatch => {
         dispatch(errorTrue(status));
       }
       dispatch(getPrevProductCreator(products));
-      dispatch(errorFalse());
     })
 };
+
+// export const fetchTotal = () => dispatch => {
+//   fetch(`http://localhost:3001/posts/`)
+//   .then(response => response.json())
+//   .then(response => console.log(response.length));
+// }

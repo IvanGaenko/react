@@ -1,7 +1,8 @@
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import './App.css';
 import storeCreator from './store';
@@ -20,3 +21,5 @@ class App extends Component {
 }
 
 export default App;
+
+configure({ adapter: new Adapter() });

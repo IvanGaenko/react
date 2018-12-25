@@ -8,9 +8,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
+
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 const styles = () => (
   {
@@ -61,7 +63,7 @@ class ProductCard extends Component {
 
   render() {
     const { classes } = this.props;
-    const { id, title, author, image, price, year } = this.props;
+    const { id, title, author, image, price, year } = this.props;   
     return (
       <div className={classes.root}>
         <Card className={classes.card}>
@@ -97,7 +99,7 @@ class ProductCard extends Component {
             <Button size="small" color="primary" onClick={this.addToCart}>
               Buy
             </Button>
-            <Link to={`/posts/${id}`}>
+            <Link to={`/posts/${id}`} router="">
               <Button size="small" color="primary">
                 Details
               </Button>
@@ -146,3 +148,5 @@ export default withStyles(styles)(ProductCard);
 ProductCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
+configure({ adapter: new Adapter() });

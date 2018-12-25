@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,7 +10,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = () => (
   {
@@ -75,7 +74,7 @@ class ProductPage extends Component {
   componentDidMount() {
     if (Object.keys(this.props.singleProduct).length === 0)
       {this.props.getSingleProduct(this.props.match.params.id)};
-    this.setState({ isLoading: false})
+    this.setState({ isLoading: false});
   }
 
   addToCart = () => {
@@ -94,12 +93,7 @@ class ProductPage extends Component {
   render() {
     const { classes } = this.props;
     const { id, title, author, image, price, year } = this.props.singleProduct;
-    const { error } = this.props;
-    return error ? (<Redirect to="/notfound" />) : (
-      this.state.isLoading ? (
-        <CircularProgress className={classes.progress} />
-      ) : (
-      <div className={classes.root}>
+      return (<div className={classes.root}>
         <div className={classes.container}>
         <div>
           <Link to={`/posts/${this.props.singleProduct.id - 1}`}>
@@ -190,7 +184,8 @@ class ProductPage extends Component {
         ]}
       />
       </div>
-    ))
+    )
+    // )
   }
 };
 

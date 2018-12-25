@@ -33,10 +33,11 @@ class NotFound extends Component {
         </Link>
         
         <Link to="/posts/">
+        
           <Button
             variant="contained"
             color="primary">
-            Go To Products
+            <button>Go To Products</button>
           </Button>
         </Link>
       </div>
