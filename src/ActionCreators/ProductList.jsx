@@ -19,6 +19,7 @@ export const setPage = (page, limit) => {
 
 export const fetchProducts = (limit, page) => dispatch => {
   let status;
+  // return blabla(limit, page)
   fetch(`http://localhost:3001/posts?_limit=${limit}&_page=${page}`)
   .then(response => {
     status = response.status;

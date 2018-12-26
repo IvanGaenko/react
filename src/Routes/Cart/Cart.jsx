@@ -6,17 +6,18 @@ import Typography from '@material-ui/core/Typography';
 
 class Cart extends Component {
   
-  countSum = () => {
-    const bank = [];
-    const stateCart = this.props.showCart;
-    for (let i = 0; i < stateCart.length; i++) {
-      bank.push(stateCart[i].price);
-    };
-    let totalBank = bank.reduce((first, second) => first + second, 0);
-    return totalBank;
-  }
+  // countSum = () => {
+  //   const bank = [];
+  //   const stateCart = this.props.showCart;
+  //   for (let i = 0; i < stateCart.length; i++) {
+  //     bank.push(stateCart[i].price);
+  //   };
+  //   let totalBank = bank.reduce((first, second) => first + second, 0);
+  //   return totalBank;
+  // }
 
   render() {
+    const { totalPrice } = this.props;
     return (
       this.props.showCart.length === 0) ? (
       <div>
@@ -39,7 +40,8 @@ class Cart extends Component {
             )
           })}
           <Typography gutterBottom variant="headline" component="h2">
-            Total sum: ${this.countSum()}
+            {/* Total sum: ${this.countSum()} */}
+            Total sum: ${totalPrice}
           </Typography>
         </div>
       );

@@ -1,27 +1,38 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import ProductList from "../Routes/ProductList/ProductList";
+import {ProductList} from "../Routes/ProductList/ProductList";
 import ProductCard from "../Routes/ProductList/ProductCard";
 
 const props = {
-  loadProducts: jest.fn()
+  addProducts: {
+    products: [{id: 1}]
+  },
+  page: 1,
+  limit: 2,
+  getProducts: jest.fn(),
+  addCart: jest.fn()
 };
+
 
 describe("ProductList", () => {
   let component;
 
   beforeEach(() => {
     component = shallow(<ProductList {...props} />);
+    console.log(component.debug());
   });
 
   it("Should render component ProductList", () => {
-    console.log(component.debug());
     expect(component).toBeTruthy();
   });
 
   it('renders ProductCard components', () => {
-    const wrapper = shallow(<ProductList />);
-    expect(wrapper.find(ProductCard)).toBeTruthy();
+    expect(component.find(ProductCard)).toBeTruthy();
+  });
+
+  it('Test click event', () => {
+    component.find('#mybutton').simulate('click');
+    expect(props.getProducts).toHaveBeenCalled();
   });
 });

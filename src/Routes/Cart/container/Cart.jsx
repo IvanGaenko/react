@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 
 import Cart from '../Cart';
 import { delCart } from "../../../ActionCreators/Cart";
-
+import { getTotalPrice } from '../../../Selectors/Cart';
 
 const mapStateToProps = state => ({
-  showCart: state.Cart
+  showCart: state.Cart,
+  totalPrice: getTotalPrice(state)
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -16,3 +17,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
   )(Cart);
+  
