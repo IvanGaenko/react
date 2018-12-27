@@ -12,7 +12,7 @@ const styles = theme => ({
 });
 
 export class ProductList extends Component {
-  state={
+  state = {
     isLoading: true,
   }
 
