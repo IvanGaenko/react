@@ -1,8 +1,3 @@
-/* eslint-disable import/named */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ProductList } from '../Routes/ProductList/ProductList';
@@ -24,7 +19,6 @@ describe('ProductList', () => {
 
   beforeEach(() => {
     component = shallow(<ProductList {...props} />);
-    // console.log(component.debug());
   });
 
   it('Should render component ProductList', () => {

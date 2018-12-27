@@ -81,9 +81,3 @@ export const getPrevProduct = id => dispatch => {
       dispatch(getPrevProductCreator(products));
     })
 };
-
-// export const fetchTotal = () => dispatch => {
-//   fetch(`http://localhost:3001/posts/`)
-//   .then(response => response.json())
-//   .then(response => console.log(response.length));
-// }

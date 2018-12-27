@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 const styles = () => (
   {
     root: {
@@ -72,22 +75,25 @@ class ProductPage extends Component {
   };
   
   componentDidMount() {
-    if (Object.keys(this.props.singleProduct).length === 0)
-      {this.props.getSingleProduct(this.props.match.params.id)};
+    // if (Object.keys(this.props.singleProduct).length === 0)
+      this.props.getSingleProduct(this.props.match.params.id);
     this.setState({ isLoading: false});
   }
 
   addToCart = () => {
-    this.props.addCart(this.props.singleProduct);
+    const { addCart, singleProduct } = this.props;
+    addCart(singleProduct);
     this.handleClick();
   }
 
   nextCart = () => {
-    this.props.getNextProduct(this.props.singleProduct.id);
+    const { getNextProduct, singleProduct } = this.props;
+    getNextProduct(singleProduct.id);
   }
 
   prevCart = () => {
-    this.props.getPrevProduct(this.props.singleProduct.id);
+    const { getPrevProduct, singleProduct } = this.props;
+    getPrevProduct(singleProduct.id);
   }
 
   render() {
@@ -96,7 +102,7 @@ class ProductPage extends Component {
       return (<div className={classes.root}>
         <div className={classes.container}>
         <div>
-          <Link to={`/posts/${this.props.singleProduct.id - 1}`}>
+          <Link to={`/posts/${id - 1}`}>
             <Button
               variant="contained"
               color="primary"
@@ -105,7 +111,7 @@ class ProductPage extends Component {
             </Button>
           </Link>
 
-          <Link to={`/posts/`}>
+          <Link to="/posts/">
             <Button
               variant="contained"
               color="primary">
@@ -135,13 +141,13 @@ class ProductPage extends Component {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button className={classes.button} size="small" color="primary" onClick={this.addToCart}>
+            <Button id="add-cart" className={classes.button} size="small" color="primary" onClick={this.addToCart}>
               Buy
             </Button>
           </CardActions>
         </Card>
         
-        <Link to={`/posts/${this.props.singleProduct.id + 1}`}>
+        <Link to={`/posts/${id + 1}`}>
           <Button
             variant="contained"
             color="primary"
@@ -194,3 +200,5 @@ export default withStyles(styles)(ProductPage);
 ProductPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
+Enzyme.configure({ adapter: new Adapter() });

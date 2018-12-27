@@ -7,10 +7,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-class CartContent extends Component {
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
+class CartContent extends Component {
   deleteCart = () => {
-    this.props.delCart(this.props.id)
+    const { delCart, id } = this.props;
+    delCart(id);
   }
 
   render() {
@@ -28,7 +31,11 @@ class CartContent extends Component {
             <TableCell>{author}</TableCell>
             <TableCell>${price}</TableCell>
             <TableCell>
-              <Button variant="contained" color="secondary" onClick={this.deleteCart}>
+              <Button
+                id="cart-delete"
+                variant="contained"
+                color="secondary"
+                onClick={this.deleteCart}>
                 Delete
               </Button>
             </TableCell>
@@ -41,3 +48,5 @@ class CartContent extends Component {
 }
 
 export default CartContent;
+
+Enzyme.configure({ adapter: new Adapter() });
