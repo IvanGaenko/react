@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'typeface-roboto';
 import Button from '@material-ui/core/Button';
 import ProductCard from './ProductCard';
 // import CircularProgress from '@material-ui/core/CircularProgress';

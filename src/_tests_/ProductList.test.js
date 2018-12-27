@@ -1,29 +1,33 @@
-import React from "react";
-import { shallow } from "enzyme";
-
-import {ProductList} from "../Routes/ProductList/ProductList";
-import ProductCard from "../Routes/ProductList/ProductCard";
+/* eslint-disable import/named */
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable no-undef */
+import React from 'react';
+import { shallow } from 'enzyme';
+import { ProductList } from '../Routes/ProductList/ProductList';
+import ProductCard from '../Routes/ProductList/ProductCard';
 
 const props = {
   addProducts: {
-    products: [{id: 1}]
+    products: [{ id: 1 }],
   },
   page: 1,
   limit: 2,
   getProducts: jest.fn(),
-  addCart: jest.fn()
+  addCart: jest.fn(),
 };
 
 
-describe("ProductList", () => {
+describe('ProductList', () => {
   let component;
 
   beforeEach(() => {
     component = shallow(<ProductList {...props} />);
-    console.log(component.debug());
+    // console.log(component.debug());
   });
 
-  it("Should render component ProductList", () => {
+  it('Should render component ProductList', () => {
     expect(component).toBeTruthy();
   });
 
