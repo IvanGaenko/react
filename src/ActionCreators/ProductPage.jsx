@@ -38,7 +38,6 @@ export const getSingleProduct = id => dispatch => {
         dispatch(errorTrue(status));
       }
       dispatch(getSingleProductCreator(products));
-      // dispatch(fetchTotal());
     }
     );
 };

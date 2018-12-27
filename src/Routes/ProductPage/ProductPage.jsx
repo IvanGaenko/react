@@ -75,8 +75,8 @@ class ProductPage extends Component {
   };
   
   componentDidMount() {
-    // if (Object.keys(this.props.singleProduct).length === 0)
-      this.props.getSingleProduct(this.props.match.params.id);
+    const { getSingleProduct } = this.props;
+    getSingleProduct(this.props.match.params.id);
     this.setState({ isLoading: false});
   }
 
@@ -191,7 +191,6 @@ class ProductPage extends Component {
       />
       </div>
     )
-    // )
   }
 };
 
