@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class Error extends Component {
   componentWillUnmount() {
-    this.props.errorFalse();
+    const { errorFalse } = this.props;
+    errorFalse();
   }
 
   render() {
-    console.log('works!', this.props.error);
-    
-    if (this.props.error) {
+    const { error, errorFalse } = this.props;
+    if (error) {
       return <Redirect to="/notfound" />;
     }
-    this.props.errorFalse();
+    errorFalse();
     return null;
   }
 }

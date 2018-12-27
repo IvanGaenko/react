@@ -1,25 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable no-undef */
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-
+import ReactDOM from 'react-dom';
 import App from '../App';
-import Layout from '../Layout';
 
-
-describe('App', () => {
-  let component;
-
-  beforeEach(() => {
-    component = mount(<App />);
-  });
-
-  it('Should render App component', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('renders three <Foo /> components', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Layout)).toBeTruthy();
-  });
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
 });
