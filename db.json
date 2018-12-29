@@ -160,5 +160,10 @@
       "image": "http://www.topnews.ru/upload/photo/69ead639/5fec3.jpg",
       "price": 40500000
     }
-  ]
+  ],
+  "currency":
+    {
+      "USD": 1,
+      "UAH": 28
+    }
 }

@@ -1,30 +1,28 @@
-import * as constants from "../ActionTypes/ProductList";
+import * as constants from "../ActionTypes/Currency";
 
 const initialState = {
-  limit: 2,
-  page: 1,
-  products: []
+  currency: [],
+  currentCurrency: []
 }
 
 export default function products (state = initialState, action) {
   const {type, payload} = action;
   
   switch (type) {
-    case constants.ADD_ITEM:
+    case constants.GET_CURRENCY:
+    console.log('g-state', state);
+    
       return {
         ...state,
-        products: [
-          ...state.products,
-          ...payload.products
-        ]
+        currency: payload
       };
     
-    case constants.SET_PAGE:
+    case constants.SET_CURRENCY:
       return {
         ...state,
-        page: payload,
+        currentCurrency: [payload]
         };
-    
+          
     default:
       return state;
   }

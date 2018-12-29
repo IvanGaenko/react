@@ -8,6 +8,7 @@ import Layout from './Layout';
 import { saveState } from './localstorage/localstorage';
 
 const store = storeCreator();
+console.log(store.getState());
 
 store.subscribe(throttle(() => {
   saveState({ Cart: store.getState().Cart });

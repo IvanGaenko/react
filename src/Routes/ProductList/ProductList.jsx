@@ -10,29 +10,29 @@ const styles = theme => ({
 });
 
 export class ProductList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-    }
-  }
-  
+    
   componentDidMount() {
     const { products } = this.props.addProducts;
+    const {getProducts, limit, page, fetchCurrency, currency} = this.props;
+    
     if (products.length === 0) {
-      this.loadProducts();
+      getProducts(limit, page);
     }
-    this.setState({ isLoading: false });
+
+    if (currency.currency.length === 0) {
+      fetchCurrency();
+    }
   }
 
   loadProducts = () => {
     const {getProducts, limit, page} = this.props;
     getProducts(limit, page);
+    console.log(this.props.currency);
+
   };
 
   render() {
-    const { addProducts } = this.props;
-    const { addCart } = this.props;
+    const { addProducts, addCart } = this.props;
     return (<div className="container">
       <div className="product-list">
         {addProducts.products.map((item) => {
