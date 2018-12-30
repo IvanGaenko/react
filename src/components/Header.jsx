@@ -6,8 +6,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+
+import CurrencyHeaderBlock from './CurrencyHeaderBlock';
 
 const styles = () => (
   {
@@ -29,27 +29,17 @@ const styles = () => (
 );
 
 class Header extends Component {
-  state = {
-    age: '',
-    // name: 'hai',
-    // labelWidth: 0,
-  };
 
   componentDidMount() {
     const { fetchCurrency, currency } = this.props;
     if (currency.currency.length === 0) {
-    fetchCurrency();
-    console.log('header fetch mount');
+      fetchCurrency();
     }
   };
 
-  updateCurrency = () => {
-    this.props.setCurrency(this.state.age);
-  }
-
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-    this.updateCurrency();
+  handleChange = () => event => {
+    const { setCurrency } = this.props;
+    setCurrency(event.target.value);
   };
 
   headElement = (content, link) => {
@@ -59,13 +49,17 @@ class Header extends Component {
   };
   
   productCount = (cartCount) => {
-    console.log('curency currency', this.props.currency.currency);
-    console.log('current currency', this.props.currency.currentCurrency);
-    // console.log('state', this.state);
-    console.log('age', this.state.age);
-
+    const { currency, totalPrice } = this.props;
     const showCartCount = this.props.showCart.length;
-    let product = (showCartCount > 1) ? ('products') : ('product');
+    const product = (showCartCount > 1) ? ('products') : ('product');
+
+    const currencyPrice = currency.currentCurrency.map(item => {
+      return (
+        <p key={item.mark}>
+        Total cost is: {item.mark} {totalPrice * item.value}
+        </p>
+      )
+    });
     return (
       (showCartCount === 0) ? (
         <Typography variant="title" color="inherit" className={this.props.classes.flex}>
@@ -74,17 +68,15 @@ class Header extends Component {
       ) : (
         <div>
           <p>You have {cartCount} {product} in cart.</p>
-          <p>Total cost is ${this.props.totalPrice}.</p>
+          {currencyPrice}
         </div>
       )
     )
   }
 
-  render() {
-    const { classes } = this.props;
+  render() {   
+    const { classes, currency, setCurrency } = this.props;
     const showCartCount = this.props.showCart.length;
-
-    // const { currency } = this.props.currency;
     return (
       <header className={classes.root}>
         <AppBar position="static">
@@ -102,25 +94,11 @@ class Header extends Component {
             <span>
               {this.productCount(showCartCount)}
             </span>
-
-
-            <FormControl className={classes.formControl}>
-              <Select
-                native
-                value={this.state.age}
-                onChange={this.handleChange('age')}
-                inputProps={{
-                  name: 'age',
-                  id: 'age-native-simple',
-                }}
-              >
-                <option value="USD">USD</option>;
-                <option value="UAH">UAH</option>;
-
-              </Select>
-            </FormControl>
-                
-            
+            <CurrencyHeaderBlock
+              handleChange={this.handleChange}
+              currency={currency}
+              setCurrency={setCurrency}
+            />
           </Toolbar>
         </AppBar>
       </header>

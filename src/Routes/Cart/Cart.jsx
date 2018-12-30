@@ -7,7 +7,14 @@ import CartContent from './CartContent';
 
 class Cart extends Component {
   render() {
-    const { totalPrice, showCart, delCart } = this.props;
+    const { totalPrice, showCart, delCart, myCurrency } = this.props;
+    const currencyPrice = myCurrency.currentCurrency.map(item => {
+      return (
+        <Typography key={item.mark} gutterBottom variant="headline" component="h2">
+        Total cost is: {item.mark} {totalPrice * item.value}
+        </Typography>
+      )
+    });
     return (
       showCart.length === 0) ? (
         <div>
@@ -26,12 +33,10 @@ class Cart extends Component {
               key={item.id}
               {...item}
               delCart={delCart}
+              myCurrency={myCurrency}
             />
           ))}
-          <Typography gutterBottom variant="headline" component="h2">
-            Total sum: $
-            {totalPrice}
-          </Typography>
+          {currencyPrice}
         </div>
       );
   }

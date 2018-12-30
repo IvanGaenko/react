@@ -13,26 +13,20 @@ export class ProductList extends Component {
     
   componentDidMount() {
     const { products } = this.props.addProducts;
-    const {getProducts, limit, page, fetchCurrency, currency} = this.props;
-    
+    const {getProducts, limit, page} = this.props;
+
     if (products.length === 0) {
       getProducts(limit, page);
-    }
-
-    if (currency.currency.length === 0) {
-      fetchCurrency();
     }
   }
 
   loadProducts = () => {
     const {getProducts, limit, page} = this.props;
     getProducts(limit, page);
-    console.log(this.props.currency);
-
   };
 
   render() {
-    const { addProducts, addCart } = this.props;
+    const { addProducts, addCart, myCurrency } = this.props;
     return (<div className="container">
       <div className="product-list">
         {addProducts.products.map((item) => {
@@ -41,6 +35,7 @@ export class ProductList extends Component {
               key={item.id}
               {...item}
               addCart={addCart}
+              myCurrency={myCurrency}
             />
           )
         })}

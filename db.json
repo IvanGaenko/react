@@ -162,8 +162,18 @@
     }
   ],
   "currency":
+  [
     {
-      "USD": 1,
-      "UAH": 28
+      "mark": "USD",
+      "value": 1
+    },
+    {
+      "mark": "UAH",
+      "value": 27.39
+    },
+    {
+      "mark": "EUR",
+      "value": 0.87
     }
+  ]
 }

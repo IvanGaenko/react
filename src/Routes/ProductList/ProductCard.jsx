@@ -11,9 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
 const styles = () => (
   {
     root: {
@@ -40,7 +37,7 @@ const styles = () => (
   }
 );
 
-class ProductCard extends Component {
+export class ProductCard extends Component {
   state = {
     open: false,
   };
@@ -63,7 +60,15 @@ class ProductCard extends Component {
 
   render() {
     const { classes } = this.props;
-    const { id, title, author, image, price, year } = this.props;   
+    const { id, title, author, image, price, year, myCurrency } = this.props;
+
+    const currencyPrice = myCurrency.currentCurrency.map(item => {
+      return (
+        <Typography key={item.mark} component="p">
+        Price: {item.mark} {price * item.value}
+        </Typography>
+      )
+    });
     return (
       <div className={classes.root}>
         <Card className={classes.card}>
@@ -89,10 +94,7 @@ class ProductCard extends Component {
               component="p">
               Year: {year}
             </Typography>
-            <Typography
-              component="p">
-              Price: ${price}
-            </Typography>
+            {currencyPrice}
           </CardContent>
 
           <CardActions>
@@ -148,5 +150,3 @@ export default withStyles(styles)(ProductCard);
 ProductCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
-configure({ adapter: new Adapter() });

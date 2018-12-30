@@ -10,17 +10,21 @@ export default function products (state = initialState, action) {
   
   switch (type) {
     case constants.GET_CURRENCY:
-    console.log('g-state', state);
-    
       return {
         ...state,
         currency: payload
       };
     
     case constants.SET_CURRENCY:
+      if (state.currentCurrency.length === 0) {
+        return {
+          ...state,
+          currentCurrency: [payload[0]]
+          }; 
+      }
       return {
         ...state,
-        currentCurrency: [payload]
+        currentCurrency: state.currency.filter(item => item.mark === payload)
         };
           
     default:

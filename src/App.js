@@ -8,10 +8,12 @@ import Layout from './Layout';
 import { saveState } from './localstorage/localstorage';
 
 const store = storeCreator();
-console.log(store.getState());
 
 store.subscribe(throttle(() => {
-  saveState({ Cart: store.getState().Cart });
+  saveState({
+    Cart: store.getState().Cart,
+    Currency: store.getState().Currency
+  });
 }, 1000));
 
 class App extends Component {

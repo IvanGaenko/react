@@ -8,7 +8,7 @@ export const getCurrency = (payload) => {
   }
 };
 
-export const setCurrency = (payload) => {
+export const setCurrency = payload => {
   return {
     type: constants.SET_CURRENCY,
     payload
@@ -28,5 +28,6 @@ export const fetchCurrency = () => dispatch => {
         dispatch(errorTrue(status));
     }
     dispatch(getCurrency(data));
+    dispatch(setCurrency(data));    
   })
 };

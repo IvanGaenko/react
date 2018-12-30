@@ -8,7 +8,8 @@ import { productSelector } from "../../../Selectors/ProductPage";
 const mapStateToProps = (state, props) => ({
   singleProduct: productSelector(state.ProductList.products, props) || state.ProductPage,
   error: state.errorReducer,
-  showCart: state.Cart
+  showCart: state.Cart,
+  myCurrency: state.Currency
 });
 
 const mapDispatchToProps = dispatch => ({

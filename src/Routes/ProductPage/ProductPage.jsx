@@ -97,8 +97,16 @@ class ProductPage extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, myCurrency } = this.props;
     const { id, title, author, image, price, year } = this.props.singleProduct;
+    
+    const currencyPrice = myCurrency.currentCurrency.map(item => {
+      return (
+        <Typography key={item.mark} component="p">
+        Price: {item.mark} {price * item.value}
+        </Typography>
+      )
+    });
       return (<div className={classes.root}>
         <div className={classes.container}>
         <div>
@@ -136,9 +144,7 @@ class ProductPage extends Component {
             <Typography component="p">
               Year: {year}
             </Typography>
-            <Typography component="p">
-              Price: ${price}
-            </Typography>
+            {currencyPrice}
           </CardContent>
           <CardActions>
             <Button id="add-cart" className={classes.button} size="small" color="primary" onClick={this.addToCart}>

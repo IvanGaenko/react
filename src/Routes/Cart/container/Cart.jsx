@@ -6,7 +6,8 @@ import { getTotalPrice } from '../../../Selectors/Cart';
 
 const mapStateToProps = state => ({
   showCart: state.Cart,
-  totalPrice: getTotalPrice(state)
+  totalPrice: getTotalPrice(state),
+  myCurrency: state.Currency
 })
 
 const mapDispatchToProps = dispatch => ({

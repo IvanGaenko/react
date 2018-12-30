@@ -26,64 +26,7 @@ describe('todos reducer', () => {
 
   test('reducers', () => {
     let state;
-    state = reducers(
-      {
-        ProductList:{
-          limit:2,
-          page:1,
-          products:[]
-        },
-        ProductPage:{},
-        errorReducer:'',
-        Cart:[]
-      },
-      {
-      type:'ADD_ITEM',
-      payload:{
-        products:[
-          {
-            id:1,
-            title:'«Номер 5»',
-            author:'Джексон Поллок',
-            year:1948,
-            image:'http://www.topnews.ru/upload/photo/69ead639/855b9.jpg',
-            price:140000000
-          },
-          {
-            id:2,
-            title:'«Женщина III»',
-            author:'Виллем де Кунинг',
-            year:1953,
-            image:'http://www.topnews.ru/upload/photo/69ead639/4b92b.jpg',
-            price:137500000
-          }
-      ]}});
-    expect(state).toEqual(
-      {
-        ProductList:{
-          limit:2,
-          page:1,
-          products:[
-        {
-          id:1,
-          title:'«Номер 5»',
-          author:'Джексон Поллок',
-          year:1948,
-          image:'http://www.topnews.ru/upload/photo/69ead639/855b9.jpg',
-          price:140000000
-        },
-        {
-          id:2,
-          title:'«Женщина III»',
-          author:'Виллем де Кунинг',
-          year:1953,
-          image:'http://www.topnews.ru/upload/photo/69ead639/4b92b.jpg',
-          price:137500000
-        }
-        ]},
-        ProductPage:{},
-        errorReducer:'',
-        Cart:[]
-      });
+    state = reducers({ProductList:{limit:2,page:1,products:[]},ProductPage:{},errorReducer:'',Cart:[],Currency:{currency:[{mark:'USD',value:1},{mark:'UAH',value:27.39},{mark:'EUR',value:0.87}],currentCurrency:[{mark:'EUR',value:0.87}]}}, {type:'ADD_ITEM',payload:{products:[{id:1,title:'«Номер 5»',author:'Джексон Поллок',year:1948,image:'http://www.topnews.ru/upload/photo/69ead639/855b9.jpg',price:140000000},{id:2,title:'«Женщина III»',author:'Виллем де Кунинг',year:1953,image:'http://www.topnews.ru/upload/photo/69ead639/4b92b.jpg',price:137500000}]}});
+    expect(state).toEqual({ProductList:{limit:2,page:1,products:[{id:1,title:'«Номер 5»',author:'Джексон Поллок',year:1948,image:'http://www.topnews.ru/upload/photo/69ead639/855b9.jpg',price:140000000},{id:2,title:'«Женщина III»',author:'Виллем де Кунинг',year:1953,image:'http://www.topnews.ru/upload/photo/69ead639/4b92b.jpg',price:137500000}]},ProductPage:{},errorReducer:'',Cart:[],Currency:{currency:[{mark:'USD',value:1},{mark:'UAH',value:27.39},{mark:'EUR',value:0.87}],currentCurrency:[{mark:'EUR',value:0.87}]}});
   });
 })

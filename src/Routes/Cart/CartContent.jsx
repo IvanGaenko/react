@@ -17,7 +17,15 @@ class CartContent extends Component {
   }
 
   render() {
-    const { id, title, author, price } = this.props; 
+    const { id, title, author, price, myCurrency } = this.props;
+
+    const currencyPrice = myCurrency.currentCurrency.map(item => {
+      return (
+        <TableCell key={item.mark}>
+        {item.mark} {price * item.value}
+        </TableCell>
+      )
+    });
     return (
       <Paper>
       <Table>
@@ -29,7 +37,7 @@ class CartContent extends Component {
               </Link>
             </TableCell>
             <TableCell>{author}</TableCell>
-            <TableCell>${price}</TableCell>
+            {currencyPrice}
             <TableCell>
               <Button
                 id="cart-delete"
