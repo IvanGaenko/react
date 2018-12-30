@@ -5,7 +5,6 @@ import Select from '@material-ui/core/Select';
 class CurrencyHeaderBlock extends Component {
   render() {
     const { currency } = this.props;
-    // console.log(localStorage.getItem('Cart'));
     
     const currencyBlock = currency.currency.map(item => {
       return (

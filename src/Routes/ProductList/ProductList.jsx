@@ -3,6 +3,9 @@ import Button from '@material-ui/core/Button';
 import ProductCard from './ProductCard';
 import { withStyles } from '@material-ui/core/styles';
 
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 const styles = theme => ({
   progress: {
     margin: theme.spacing.unit * 2,
@@ -56,3 +59,5 @@ export class ProductList extends Component {
 }
 
 export default withStyles(styles)(ProductList);
+
+Enzyme.configure({ adapter: new Adapter() });

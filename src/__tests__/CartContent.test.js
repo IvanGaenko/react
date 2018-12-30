@@ -16,16 +16,14 @@ describe("CartContent", () => {
 
   beforeEach(() => {
     component = shallow(<CartContent {...props} />);
-    console.log(component.debug());
-    
   });
 
-  // it("Should render correct product", () => {
-  //   const tableCell = component.find("WithStyles(TableCell)");
-  //   expect(tableCell.at(0).childAt(0).childAt(0).text()).toBe(props.title);
-  //   expect(tableCell.at(1).childAt(0).text()).toBe(props.author);
-  //   expect(tableCell.at(2).childAt(1).text()).toBe(props.price);
-  // });
+  it("Should render correct product", () => {
+    const tableCell = component.find("WithStyles(TableCell)");
+    expect(tableCell.at(0).childAt(0).childAt(0).text()).toBe(props.title);
+    expect(tableCell.at(1).childAt(0).text()).toBe(props.author);
+    expect(tableCell.at(2).childAt(1).text()).toBe(props.price);
+  });
 
   it('Call function delCart on click', () => {
     component.find('#cart-delete').simulate('click');
