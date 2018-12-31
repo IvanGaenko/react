@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ProductList } from '../Routes/ProductList/ProductList';
+import ProductList from '../Routes/ProductList/ProductList';
 import ProductCard from '../Routes/ProductList/ProductCard';
 
 const props = {

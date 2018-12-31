@@ -10,10 +10,10 @@ import { saveState } from './localstorage/localstorage';
 const store = storeCreator();
 
 store.subscribe(throttle(() => {
-  saveState({
-    Cart: store.getState().Cart,
-    Currency: store.getState().Currency
-  });
+  saveState(
+    store.getState().Cart,
+    store.getState().Currency
+    );
 }, 1000));
 
 class App extends Component {

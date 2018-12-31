@@ -1,4 +1,5 @@
 import * as constants from "../ActionTypes/Currency";
+// import { object } from "prop-types";
 
 const initialState = {
   currency: [],
@@ -16,7 +17,7 @@ export default function products (state = initialState, action) {
       };
     
     case constants.SET_CURRENCY:
-      if (state.currentCurrency.length === 0) {
+      if (state.currentCurrency.length === 0 || typeof(payload) === 'object') {
         return {
           ...state,
           currentCurrency: [payload[0]]
@@ -24,7 +25,7 @@ export default function products (state = initialState, action) {
       }
       return {
         ...state,
-        currentCurrency: state.currency.filter(item => item.mark === payload)
+        currentCurrency: [state.currency.find(item => item.mark === payload)]
         };
           
     default:

@@ -27,7 +27,12 @@ export const fetchCurrency = () => dispatch => {
       if (status >= 400 && status < 500) {
         dispatch(errorTrue(status));
     }
-    dispatch(getCurrency(data));
-    dispatch(setCurrency(data));    
+    const dataStore = JSON.parse(localStorage.getItem('Currency'));
+
+    if (!(JSON.stringify(dataStore.currency) === JSON.stringify(data))) {
+      dispatch(getCurrency(data));
+      dispatch(setCurrency(data));
+    }
   })
 };
+

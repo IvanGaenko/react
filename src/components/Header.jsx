@@ -31,10 +31,8 @@ const styles = () => (
 class Header extends Component {
 
   componentDidMount() {
-    const { fetchCurrency, currency } = this.props;
-    if (currency.currency.length === 0) {
-      fetchCurrency();
-    }
+    const { fetchCurrency } = this.props;
+    fetchCurrency();
   };
 
   handleChange = () => event => {
