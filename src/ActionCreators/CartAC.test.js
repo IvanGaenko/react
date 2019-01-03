@@ -1,5 +1,5 @@
-import * as constants from "../../ActionTypes/Cart";
-import { addCart, delCart } from '../../ActionCreators/Cart';
+import * as constants from "../ActionTypes/Cart";
+import { addCart, delCart } from './Cart';
 
 describe('actions', () => {
   it('should create an action to addCart', () => {

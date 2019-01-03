@@ -1,13 +1,19 @@
-import React from "react";
+import React from 'react';
 import { shallow } from "enzyme";
-import Cart from "../Routes/Cart/Cart";
+import Cart from "./Cart";
+
+const props = {
+  showCart: [{
+    id: 1, title: "Hello"
+  }],
+  myCurrency: {
+    currentCurrency: [{
+    "mark": "USD",
+    "value": 1
+  }]}
+};
 
 describe("Cart", () => {
-  const props = {
-    showCart: [{
-      id: 1, title: "Hello"
-    }],
-  };
 
   let component;
   beforeEach(() => {
@@ -17,7 +23,11 @@ describe("Cart", () => {
   it("Should renders 3 children if cart is empty", () => {
     const emptyProps = {
       showCart: [],
-      totalPrice: 200,
+      myCurrency: {
+        currentCurrency: [{
+        "mark": "USD",
+        "value": 1
+      }]}
     };
     component = shallow(<Cart {...emptyProps} />);
     expect(component.children().length).toBe(3);
@@ -25,6 +35,7 @@ describe("Cart", () => {
 
   it("Should renders 2 children if cart is not empty", () => {
     expect(component.children().length).toBe(2);
+    expect(component).toBeTruthy();
   });
 
   it("Should render length of products in cart", () => {

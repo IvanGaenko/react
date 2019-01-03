@@ -1,6 +1,6 @@
-import reducer from '../../reducers/ProductList';
-import * as constants from '../../ActionTypes/ProductList';
-import reducers from '../../reducers';
+import reducer from './ProductList';
+import * as constants from '../ActionTypes/ProductList';
+import reducers from '.';
 
 describe('todos reducer', () => {
   it('should return the initial state', () => {

@@ -2,7 +2,7 @@ import React from "react";
 import { mount } from "enzyme";
 import { BrowserRouter } from "react-router-dom";
 import renderer from "react-test-renderer";
-import  ProductPage  from "../Routes/ProductPage/ProductPage";
+import  ProductPage  from "./ProductPage";
 
 describe("ProductPage", () => {
   const props = {
@@ -16,7 +16,12 @@ describe("ProductPage", () => {
     },
     getSingleProduct: jest.fn(),
     addCart: jest.fn(),
-    match: { params: { itemId: 1 } }
+    match: { params: { itemId: 1 } },
+    myCurrency: {
+      currentCurrency: [{
+      "mark": "USD",
+      "value": 1
+    }]}
   };
 
   let component;
@@ -44,7 +49,8 @@ describe("ProductPage", () => {
     expect(typography.at(0).text()).toBe(props.singleProduct.title);
     expect(typography.at(1).text()).toBe(props.singleProduct.author);
     expect(typography.at(2).text()).toBe(`Year: ${props.singleProduct.year}`);
-    expect(typography.at(3).text()).toBe(`Price: $${props.singleProduct.price}`);
+    expect(typography.at(3).text())
+    .toBe(`Price: ${props.myCurrency.currentCurrency[0].mark + " " + props.singleProduct.price}`);
     expect(typography.children().length).toBe(4);
   });
 

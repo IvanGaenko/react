@@ -1,5 +1,5 @@
-import * as constants from "../../ActionTypes/errorType";
-import { errorTrue } from '../../ActionCreators/errorAction';
+import * as constants from "../ActionTypes/errorType";
+import { errorTrue } from './errorAction';
 
 describe('actions', () => {
   it('should create an action to errorTrue', () => {

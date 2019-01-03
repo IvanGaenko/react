@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductPage Should render correctly 1`] = `
+<div
+  className="ProductPage-root-1"
+>
+  <div
+    className="ProductPage-container-2"
+  >
+    <div>
+      <a
+        href="/posts/0"
+        onClick={[Function]}
+      >
+        <button
+          className="MuiButtonBase-root-35 MuiButton-root-9 MuiButton-contained-20 MuiButton-containedPrimary-21 MuiButton-raised-23 MuiButton-raisedPrimary-24"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-10"
+          >
+            Prev
+          </span>
+          <span
+            className="MuiTouchRipple-root-114"
+          />
+        </button>
+      </a>
+      <a
+        href="/posts/"
+        onClick={[Function]}
+      >
+        <button
+          className="MuiButtonBase-root-35 MuiButton-root-9 MuiButton-contained-20 MuiButton-containedPrimary-21 MuiButton-raised-23 MuiButton-raisedPrimary-24"
+          disabled={false}
+          onBlur={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-10"
+          >
+            Back
+          </span>
+          <span
+            className="MuiTouchRipple-root-114"
+          />
+        </button>
+      </a>
+    </div>
+    <div
+      className="MuiPaper-root-39 MuiPaper-elevation1-42 MuiPaper-rounded-40 MuiCard-root-38 ProductPage-card-3"
+    >
+      <div
+        className="MuiCardMedia-root-66 ProductPage-media-4"
+        title={1}
+      />
+      <div
+        className="MuiCardContent-root-68"
+      >
+        <h2
+          className="MuiTypography-root-69 MuiTypography-headline-74 MuiTypography-gutterBottom-96"
+        >
+          title
+        </h2>
+        <h2
+          className="MuiTypography-root-69 MuiTypography-headline-74 MuiTypography-gutterBottom-96"
+        >
+          author
+        </h2>
+        <p
+          className="MuiTypography-root-69 MuiTypography-body1-78"
+        >
+          Year: 
+          1920
+        </p>
+        <p
+          className="MuiTypography-root-69 MuiTypography-body1-78"
+        >
+          Price: 
+          USD
+           
+          100
+        </p>
+      </div>
+      <div
+        className="MuiCardActions-root-104"
+      >
+        <button
+          className="MuiButtonBase-root-35 MuiButton-root-9 MuiButton-text-11 MuiButton-textPrimary-12 MuiButton-flat-14 MuiButton-flatPrimary-15 MuiButton-sizeSmall-32 ProductPage-button-6 MuiCardActions-action-106"
+          disabled={false}
+          id="add-cart"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-10"
+          >
+            Buy
+          </span>
+          <span
+            className="MuiTouchRipple-root-114"
+          />
+        </button>
+      </div>
+    </div>
+    <a
+      href="/posts/2"
+      onClick={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root-35 MuiButton-root-9 MuiButton-contained-20 MuiButton-containedPrimary-21 MuiButton-raised-23 MuiButton-raisedPrimary-24"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-10"
+        >
+          Next
+        </span>
+        <span
+          className="MuiTouchRipple-root-114"
+        />
+      </button>
+    </a>
+  </div>
+</div>
+`;

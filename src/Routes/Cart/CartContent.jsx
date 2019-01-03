@@ -22,7 +22,7 @@ class CartContent extends Component {
     const currencyPrice = myCurrency.currentCurrency.map(item => {
       return (
         <TableCell key={item.mark}>
-        {item.mark} {price * item.value}
+          {item.mark} {price * item.value}
         </TableCell>
       )
     });

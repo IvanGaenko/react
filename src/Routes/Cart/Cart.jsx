@@ -5,11 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import CartContent from './CartContent';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-Enzyme.configure({ adapter: new Adapter() });
-
-export class Cart extends Component {
+class Cart extends Component {
   render() {
     const { totalPrice, showCart, delCart, myCurrency } = this.props;
     const currencyPrice = myCurrency.currentCurrency.map(item => {
