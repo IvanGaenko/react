@@ -7,9 +7,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
 class CartContent extends Component {
   deleteCart = () => {
     const { delCart, id } = this.props;
@@ -56,5 +53,3 @@ class CartContent extends Component {
 }
 
 export default CartContent;
-
-Enzyme.configure({ adapter: new Adapter() });

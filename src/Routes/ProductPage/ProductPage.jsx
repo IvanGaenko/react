@@ -11,9 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
 const styles = () => (
   {
     root: {
@@ -205,5 +202,3 @@ export default withStyles(styles)(ProductPage);
 ProductPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
-Enzyme.configure({ adapter: new Adapter() });

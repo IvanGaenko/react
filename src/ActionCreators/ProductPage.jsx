@@ -45,6 +45,11 @@ export const getSingleProduct = id => dispatch => {
 export const getNextProduct = id => dispatch => {
   let status;
   let custom = `${id+1}`;
+  if (id === 20) {
+    custom = `${id}`;
+  } else {
+    custom = `${id+1}`;
+  };
   fetch(`http://localhost:3001/posts/${custom}`)
     .then(response => {
       status = response.status;
