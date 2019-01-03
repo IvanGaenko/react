@@ -1,5 +1,4 @@
 import * as constants from "../ActionTypes/Currency";
-// import { object } from "prop-types";
 
 const initialState = {
   currency: [],

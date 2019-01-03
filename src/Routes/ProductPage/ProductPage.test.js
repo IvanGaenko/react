@@ -51,7 +51,7 @@ describe("ProductPage", () => {
     expect(typography.at(2).text()).toBe(`Year: ${props.singleProduct.year}`);
     expect(typography.at(3).text())
     .toBe(`Price: ${props.myCurrency.currentCurrency[0].mark + " " + props.singleProduct.price}`);
-    expect(typography.children().length).toBe(4);
+    expect(typography.children().length).toEqual(4);
   });
 
   it("Should call function getSingleProduct in componentDidMount", () => {

@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ProductList from './ProductList';
 import ProductCard from './ProductCard';
-// jest.useFakeTimers();
 
 const props = {
   addProducts: {
