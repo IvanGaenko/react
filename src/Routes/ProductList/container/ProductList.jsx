@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import ProductList from '../ProductList';
 import { fetchProducts } from '../../../ActionCreators/ProductList';
 import { addCart } from '../../../ActionCreators/Cart';
+import { getPriceValue } from '../../../Selectors/ProductList';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   addProducts: state.ProductList,
   page: state.ProductList.page,
   limit: state.ProductList.limit,
-  myCurrency: state.Currency
+  getPrice: getPriceValue(state)
 })
 
 const mapDispatchToProps = dispatch => ({

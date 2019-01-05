@@ -7,14 +7,8 @@ import CartContent from './CartContent';
 
 class Cart extends Component {
   render() {
-    const { totalPrice, showCart, delCart, myCurrency } = this.props;
-    const currencyPrice = myCurrency.currentCurrency.map(item => {
-      return (
-        <Typography key={item.mark} gutterBottom variant="headline" component="h2">
-        Total cost is: {item.mark} {totalPrice * item.value}
-        </Typography>
-      )
-    });
+    const { showCart, delCart, myCurrency, getTotalCurrency } = this.props;
+
     return (
       showCart.length === 0) ? (
         <div>
@@ -36,7 +30,9 @@ class Cart extends Component {
               myCurrency={myCurrency}
             />
           ))}
-          {currencyPrice}
+          <Typography gutterBottom variant="headline" component="h2">
+            Total cost is: {getTotalCurrency}
+          </Typography>
         </div>
       );
   }

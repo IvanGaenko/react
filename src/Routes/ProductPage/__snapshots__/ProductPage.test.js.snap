@@ -102,9 +102,7 @@ exports[`ProductPage Should render correctly 1`] = `
           className="MuiTypography-root-69 MuiTypography-body1-78"
         >
           Price: 
-          USD
-           
-          100
+          UAH 100
         </p>
       </div>
       <div

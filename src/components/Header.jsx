@@ -47,17 +47,9 @@ class Header extends Component {
   };
   
   productCount = (cartCount) => {
-    const { currency, totalPrice } = this.props;
+    const { getTotalCurrency } = this.props;
     const showCartCount = this.props.showCart.length;
     const product = (showCartCount > 1) ? ('products') : ('product');
-
-    const currencyPrice = currency.currentCurrency.map(item => {
-      return (
-        <p key={item.mark}>
-        Total cost is: {item.mark} {totalPrice * item.value}
-        </p>
-      )
-    });
     return (
       (showCartCount === 0) ? (
         <Typography variant="title" color="inherit" className={this.props.classes.flex}>
@@ -66,7 +58,7 @@ class Header extends Component {
       ) : (
         <div>
           <p>You have {cartCount} {product} in cart.</p>
-          {currencyPrice}
+          Total cost is: {getTotalCurrency}
         </div>
       )
     )
@@ -92,6 +84,7 @@ class Header extends Component {
             <span>
               {this.productCount(showCartCount)}
             </span>
+            
             <CurrencyHeaderBlock
               handleChange={this.handleChange}
               currency={currency}

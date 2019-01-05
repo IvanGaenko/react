@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 
 import Cart from '../Cart';
 import { delCart } from "../../../ActionCreators/Cart";
-import { getTotalPrice } from '../../../Selectors/Cart';
+import { getTotalCurrency } from '../../../Selectors/Cart';
 
 const mapStateToProps = state => ({
   showCart: state.Cart,
-  totalPrice: getTotalPrice(state),
+  getTotalCurrency: getTotalCurrency(state),
   myCurrency: state.Currency
 })
 

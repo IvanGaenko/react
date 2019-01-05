@@ -19,7 +19,7 @@ class ProductList extends Component {
   };
 
   render() {
-    const { addProducts, addCart, myCurrency } = this.props;
+    const { addProducts, addCart, getPrice } = this.props;
     return (<div className="container">
       <div className="product-list">
         {addProducts.products.map((item) => {
@@ -28,7 +28,7 @@ class ProductList extends Component {
               key={item.id}
               {...item}
               addCart={addCart}
-              myCurrency={myCurrency}
+              getPrice={getPrice}
             />
           )
         })}

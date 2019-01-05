@@ -5,6 +5,7 @@ import renderer from "react-test-renderer";
 import  ProductPage  from "./ProductPage";
 
 describe("ProductPage", () => {
+
   const props = {
     singleProduct: {
     id: 1,
@@ -21,8 +22,12 @@ describe("ProductPage", () => {
       currentCurrency: [{
       "mark": "USD",
       "value": 1
-    }]}
+    }]},
+    currencyArticle: "UAH",
+    currencyValue: 1
   };
+
+
 
   let component;
   beforeEach(() => {
@@ -50,7 +55,7 @@ describe("ProductPage", () => {
     expect(typography.at(1).text()).toBe(props.singleProduct.author);
     expect(typography.at(2).text()).toBe(`Year: ${props.singleProduct.year}`);
     expect(typography.at(3).text())
-    .toBe(`Price: ${props.myCurrency.currentCurrency[0].mark + " " + props.singleProduct.price}`);
+    .toBe(`Price: ${props.currencyArticle + " " + (props.singleProduct.price * props.currencyValue)}`);
     expect(typography.children().length).toEqual(4);
   });
 

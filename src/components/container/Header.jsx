@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
 import Header from '../Header';
-import { getTotalPrice } from '../../Selectors/Cart';
+import { getTotalCurrency } from '../../Selectors/Cart';
 import { fetchCurrency, setCurrency } from '../../ActionCreators/Currency';
 
 const mapStateToProps = state => ({
   showCart: state.Cart,
-  totalPrice: getTotalPrice(state),
+  getTotalCurrency: getTotalCurrency(state),
   currency: state.Currency
 })
 

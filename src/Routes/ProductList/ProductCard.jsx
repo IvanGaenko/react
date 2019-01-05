@@ -59,23 +59,15 @@ export class ProductCard extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { id, title, author, image, price, year, myCurrency } = this.props;
+    const { id, title, author, image, year, getPrice, classes } = this.props;
 
-    const currencyPrice = myCurrency.currentCurrency.map(item => {
-      return (
-        <Typography key={item.mark} component="p">
-        Price: {item.mark} {price * item.value}
-        </Typography>
-      )
-    });
     return (
       <div className={classes.root}>
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}
             image={image}
-            title={id}
+            title={title}
           />
           <CardContent>
             <Typography
@@ -84,17 +76,22 @@ export class ProductCard extends Component {
               component="h2">
               {title}
             </Typography>
+
             <Typography
               gutterBottom
               variant="headline"
               component="h2">
               {author}
             </Typography>
+
             <Typography
               component="p">
               Year: {year}
             </Typography>
-            {currencyPrice}
+
+            <Typography component="p">
+              Price: {getPrice[id-1]}
+            </Typography>
           </CardContent>
 
           <CardActions>
