@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Error extends Component {
   componentWillUnmount() {
@@ -19,3 +19,8 @@ class Error extends Component {
 }
 
 export default Error;
+
+Error.propTypes = {
+  error: PropTypes.string.isRequired,
+  errorFalse: PropTypes.func.isRequired
+};

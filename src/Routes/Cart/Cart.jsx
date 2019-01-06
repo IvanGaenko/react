@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
@@ -39,3 +41,8 @@ class Cart extends Component {
 }
 
 export default Cart;
+
+Cart.propTypes = {
+  showCart: PropTypes.array.isRequired,
+  myCurrency: PropTypes.object.isRequired
+};

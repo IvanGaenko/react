@@ -20,7 +20,7 @@ class NotFound extends Component {
         <Typography
         variant="title"
         color="inherit"
-        className={this.props.classes.flex}>
+        className={classes.flex}>
           Page Not Found. Something went wrong. Please, contacts us to repair this problem.
         </Typography>
 
@@ -36,7 +36,7 @@ class NotFound extends Component {
           <Button
             variant="contained"
             color="primary">
-            <button>Go To Products</button>
+            Go To Products
           </Button>
         </Link>
       </div>

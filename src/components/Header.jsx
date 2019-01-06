@@ -99,6 +99,8 @@ class Header extends Component {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
+  currency: PropTypes.object.isRequired,
+  setCurrency: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Header);

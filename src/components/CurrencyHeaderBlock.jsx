@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 class CurrencyHeaderBlock extends Component {
   render() {
-    const { currency } = this.props;
+    const { currency, handleChange } = this.props;
     const currencyBlock = currency.currency.map(item => {
       return (
         <option key={item.mark} value={item.mark}>
@@ -20,7 +21,7 @@ class CurrencyHeaderBlock extends Component {
         <Select
           native
           value={currencyFix[0]}
-          onChange={this.props.handleChange()}
+          onChange={handleChange()}
           inputProps={{
             name: 'age',
             id: 'age-native-simple',
@@ -35,3 +36,7 @@ class CurrencyHeaderBlock extends Component {
 
 export default CurrencyHeaderBlock;
 
+CurrencyHeaderBlock.propTypes = {
+  currency: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired
+};

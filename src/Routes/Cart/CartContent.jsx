@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import Table from '@material-ui/core/Table';
@@ -53,3 +55,9 @@ class CartContent extends Component {
 }
 
 export default CartContent;
+
+CartContent.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  myCurrency: PropTypes.object.isRequired
+};

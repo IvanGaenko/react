@@ -54,13 +54,13 @@ export class ProductCard extends Component {
   };
 
   addToCart = () => {
-    this.props.addCart(this.props);
+    const { addCart } = this.props;
+    addCart(this.props);
     this.handleClick();
   }
 
   render() {
     const { id, title, author, image, year, getPrice, classes } = this.props;
-
     return (
       <div className={classes.root}>
         <Card className={classes.card}>
@@ -119,9 +119,9 @@ export class ProductCard extends Component {
           }}
           message={
           <span id="message-id">
-            <div>{this.props.title}</div>
-            <div>{this.props.author}</div>
-            <div>added to Cart</div>
+            <span>{title} </span>
+            <span>{author} </span>
+            <span>added to Cart</span>
           </span>
           }
           action={[
@@ -146,4 +146,10 @@ export default withStyles(styles)(ProductCard);
 
 ProductCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  getPrice: PropTypes.array.isRequired
 };

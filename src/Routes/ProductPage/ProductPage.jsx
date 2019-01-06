@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+
+import ProductPageContent from './ProductPageContent';
+import SnackbarModal from './SnackbarModal';
 
 const styles = () => (
   {
@@ -25,39 +22,13 @@ const styles = () => (
       marginLeft: 'auto',
       marginRight: 'auto',
       display: 'flex'
-    },
-    card: {
-      minWidth: 700,
-      maxWidth: 1000,
-      marginRight: 40,
-      marginLeft: 40,
-      marginBottom:30
-    },
-    media: {
-      height: 800,
-      width: 1000,
-      paddingTop: '56.25%', // 16:9
-    },
-    title: {
-      marginBottom: 16,
-      fontSize: 14,
-    },
-    button: {
-      minWidth: '100%',
-    },
-    close: {
-      padding: 20,
-    },
-    progress: {
-      margin: 500,
-    },
+    }
   }
 );
 
 class ProductPage extends Component {
   state = {
-    open: false,
-    isLoading: true
+    open: false
   };
 
   handleClick = () => {
@@ -72,9 +43,8 @@ class ProductPage extends Component {
   };
   
   componentDidMount() {
-    const { getSingleProduct } = this.props;
-    getSingleProduct(this.props.match.params.id);
-    this.setState({ isLoading: false});
+    const { getSingleProduct, match } = this.props;
+    getSingleProduct(match.params.id);
   }
 
   addToCart = () => {
@@ -95,10 +65,12 @@ class ProductPage extends Component {
 
   render() {
     const { classes, currencyArticle, currencyValue } = this.props;
-    const { id, title, author, image, price, year } = this.props.singleProduct;
+    const { id, price } = this.props.singleProduct;
+
     const currencyPrice = `${currencyArticle + " " + (price * currencyValue)}`;
-      return (<div className={classes.root}>
-        <div className={classes.container}>
+    return (
+    <div className={classes.root}>
+      <div className={classes.container}>
         <div>
           <Link to={`/posts/${id - 1}`}>
             <Button
@@ -118,35 +90,12 @@ class ProductPage extends Component {
           </Link>
         </div>
 
-        <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image={image}
-            title={id}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              {title}
-            </Typography>
-            <Typography gutterBottom variant="headline" component="h2">
-              {author}
-            </Typography>
-            <Typography component="p">
-              Year: {year}
-            </Typography>
-
-            <Typography  component="p">
-              Price: {currencyPrice}
-            </Typography>
-          </CardContent>
-
-          <CardActions>
-            <Button id="add-cart" className={classes.button} size="small" color="primary" onClick={this.addToCart}>
-              Buy
-            </Button>
-          </CardActions>
-        </Card>
-        
+        <ProductPageContent
+          currencyPrice={currencyPrice}
+          singleProduct={this.props.singleProduct}
+          addToCart={this.addToCart}
+        />
+      
         <Link to={`/posts/${id + 1}`}>
           <Button
             variant="contained"
@@ -155,47 +104,23 @@ class ProductPage extends Component {
             Next
           </Button>
         </Link>
-        </div>
-
-        <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        open={this.state.open}
-        autoHideDuration={4000}
-        onClose={this.handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={
-        <span id="message-id">
-          <div>{title}</div>
-          <div>{author}</div>
-          <div>added to Cart</div>
-        </span>
-        }
-        action={[
-          <Button key="undo" color="inherit" size="small" onClick={this.handleClose}>
-            Close
-          </Button>,
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            className={classes.close}
-            onClick={this.handleClose}
-          >
-          </IconButton>,
-        ]}
-      />
       </div>
-    )
-  }
+
+      <SnackbarModal
+        singleProduct={this.props.singleProduct}
+        handleClose={this.handleClose}
+        open={this.state.open}
+      />
+    </div>
+  )}
 };
 
 export default withStyles(styles)(ProductPage);
 
 ProductPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  singleProduct: PropTypes.object.isRequired,
+  getSingleProduct: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
+  addCart: PropTypes.func.isRequired
 };
