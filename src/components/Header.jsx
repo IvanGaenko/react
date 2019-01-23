@@ -65,12 +65,15 @@ class Header extends Component {
   }
 
   render() {   
-    const { classes, currency, setCurrency } = this.props;
+    const { classes, currency, setCurrency, isAuthenticated } = this.props;
     const showCartCount = this.props.showCart.length;
+    const username = isAuthenticated.login ? isAuthenticated.login : 'Guest';
+    const auth = isAuthenticated.isAuthenticated ? username : 'Log In';
     return (
       <header className={classes.root}>
         <AppBar position="static">
           <Toolbar>
+            {this.headElement(auth, 'login')}
             {this.headElement('Home', '')}
             {this.headElement('Products', 'posts')}
             {this.headElement('Contacts', 'contacts')}

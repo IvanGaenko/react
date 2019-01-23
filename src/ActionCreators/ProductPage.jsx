@@ -27,7 +27,8 @@ export const getPrevProductCreator = products => {
 
 export const getSingleProduct = id => dispatch => {
   let status;
-  fetch(`http://localhost:3001/posts/${id}`)
+  fetch(`http://localhost:3000/api/posts/${id}`)
+  // fetch(`http://localhost:3001/posts/${id}`)
     .then(response => {
       status = response.status;
       return response.json();
@@ -50,7 +51,8 @@ export const getNextProduct = id => dispatch => {
   } else {
     custom = `${id+1}`;
   };
-  fetch(`http://localhost:3001/posts/${custom}`)
+  fetch(`http://localhost:3000/api/posts/${custom}`)
+  // fetch(`http://localhost:3001/posts/${custom}`)
     .then(response => {
       status = response.status;
       return response.json();
@@ -72,7 +74,8 @@ export const getPrevProduct = id => dispatch => {
   } else {
     custom = `${id-1}`;
   };
-  fetch(`http://localhost:3001/posts/${custom}`)
+  fetch(`http://localhost:3000/api/posts/${custom}`)
+  // fetch(`http://localhost:3001/posts/${custom}`)
     .then(response => {
       status = response.status;
       return response.json();

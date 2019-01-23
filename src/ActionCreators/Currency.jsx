@@ -17,7 +17,8 @@ export const setCurrency = payload => {
 
 export const fetchCurrency = () => dispatch => {
   let status;
-  fetch("http://localhost:3001/currency")
+  fetch("http://localhost:3000/api/currency")
+  // fetch("http://localhost:3001/currency")
   .then(response => {
     status = response.status;
     return response.json();

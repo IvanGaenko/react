@@ -5,7 +5,7 @@ import Error from './Routes/NotFound/container/Error';
 import Header from './components/container/Header';
 import Router from './Router';
 
-class Layout extends Component {  
+class Layout extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -16,7 +16,7 @@ class Layout extends Component {
           <Error />
         </Fragment>
       </BrowserRouter>
-    );
+    )
   }
 }
 

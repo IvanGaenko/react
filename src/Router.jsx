@@ -8,6 +8,9 @@ import Cart from './Routes/Cart/container/Cart';
 import Home from './Routes/Home/Home';
 import Contacts from './Routes/Contacts/Contacts';
 import NotFound from './Routes/NotFound/NotFound';
+import Login from './Routes/Authentication/container/Auth';
+// import Header from './components/container/Header';
+// import Register from './Routes/Authentication/Register';
 
 class Router extends Component {
   render() {
@@ -18,6 +21,7 @@ class Router extends Component {
         <Route path="/posts/:id" component={ProductPage} exact />
         <Route path="/contacts" component={Contacts} exact />
         <Route path="/cart" component={Cart} exact />
+        <Route path="/login" component={Login} exact />
         <Route path="/notfound" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

@@ -7,7 +7,8 @@ import { fetchCurrency, setCurrency } from '../../ActionCreators/Currency';
 const mapStateToProps = state => ({
   showCart: state.Cart,
   getTotalCurrency: getTotalCurrency(state),
-  currency: state.Currency
+  currency: state.Currency,
+  isAuthenticated: state.Authentication
 })
 
 const mapDispatchToProps = dispatch => ({

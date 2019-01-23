@@ -5,6 +5,14 @@ import Button from '@material-ui/core/Button';
 
 import ProductCard from './ProductCard';
 
+// const test = {
+//   title: 'title',
+//   author: 'author',
+//   year: 2019,
+//   image: 'image',
+//   price: 1000
+// };
+
 class ProductList extends Component {
     
   componentDidMount() {
@@ -14,11 +22,37 @@ class ProductList extends Component {
     if (products.length === 0) {
       getProducts(limit, page);
     }
+    // this.posts();
   }
+
+  // posts = () => {
+  //   fetch('http://localhost:3000/api/posts', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(test)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => console.log(JSON.stringify(data)));
+  // };
+
+  // del = () => {
+  //   fetch('http://localhost:3000/api/posts/23', {
+  //     method: 'DELETE',
+  //     // headers: {
+  //     //   'Content-Type': 'application/json',
+  //     // },
+  //     // body: JSON.stringify(test)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => console.log(JSON.stringify(data)));
+  // };
 
   loadProducts = () => {
     const {getProducts, limit, page} = this.props;
     getProducts(limit, page);
+    // this.del();
   };
 
   render() {
